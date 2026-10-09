@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion } from 'framer-motion';
 import logoImg from '../assets/logo.jpg';
@@ -27,8 +27,6 @@ const sectionToLink: Record<string, string> = {
 export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const lastScrollY = useRef(0);
   const reduceMotion = useReducedMotion();
 
   // Thin reading-progress bar along the bottom edge of the header
@@ -37,19 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 50);
-
-      // Hide when scrolling down past the hero, reveal as soon as the user scrolls up
-      const delta = y - lastScrollY.current;
-      if (y < 120) {
-        setHidden(false);
-      } else if (delta > 8) {
-        setHidden(true);
-      } else if (delta < -8) {
-        setHidden(false);
-      }
-      lastScrollY.current = y;
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -67,17 +53,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   };
 
   const activeLink = sectionToLink[activeSection];
-  const isHidden = hidden && !isOpen;
 
   return (
-    <motion.nav
-      initial={false}
-      animate={{ y: isHidden ? '-100%' : '0%' }}
-      transition={{ duration: reduceMotion ? 0 : 0.3, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 w-full z-50 transition-[background-color,padding,border-color] duration-300 ${
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 py-4 transition-[background-color,border-color] duration-300 ${
         scrolled || isOpen
-          ? 'py-3 bg-portfolioBg/85 backdrop-blur-md border-b border-divider'
-          : 'py-5 bg-transparent border-b border-transparent'
+          ? 'bg-portfolioBg/85 backdrop-blur-md border-b border-divider'
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -190,7 +172,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 export default Navbar;
