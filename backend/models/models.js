@@ -13,6 +13,7 @@ const ProfileSchema = new mongoose.Schema({
   }],
   interests: [String],
   resumeUrl: { type: String, default: '#' },
+  experienceStart: { type: String }, // "YYYY-MM" when professional work began
   socialLinks: {
     github: String,
     linkedin: String,
@@ -45,6 +46,10 @@ const ProjectSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   features: [String],
+  featureDetails: [{
+    title: { type: String, required: true },
+    description: { type: String, required: true }
+  }],
   techStack: [String],
   challenges: { type: String },
   solutions: { type: String },

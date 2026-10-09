@@ -2,8 +2,9 @@
   "profile": {
     "name": "Satyasai Nakka",
     "title": "Full Stack Developer",
-    "bio": "Associate Software Engineer and Full Stack Developer with hands-on experience building web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and mobile applications using Flutter and Dart. I work across the full development cycle: UI/UX design in Figma, responsive frontend development, REST API development and integration, and database design.",
-    "careerJourney": "I studied Artificial Intelligence and Machine Learning at Sir C R Reddy College of Engineering, where internships at Spypro and Skilldezire introduced me to ML and AI development. Today I work as an Associate Software Engineer at Speshway Solutions, building a fleet management platform with a 3-member team. There I have also delivered a grocery delivery platform on web and mobile, and I am now building an event management application, taking each one from Figma design through frontend, backend, and database.",
+    "experienceStart": "2025-12",
+    "bio": "I'm a Full Stack Developer at Speshway Solutions, where I build real-world web and mobile applications with the MERN stack (MongoDB, Express.js, React.js, Node.js) and Flutter. I own features end to end: designing screens in Figma, building responsive React interfaces, writing REST APIs with Node.js and Express, and designing MongoDB databases. I've delivered a grocery delivery platform on web and mobile, built about 40 screens for a fleet management system as part of a 3-member team, and I'm currently building an event management application.",
+    "careerJourney": "Working on production projects has taught me to think beyond screens: how admins, customers, drivers, and delivery partners each use the same system, and how to keep one backend reliable for web and mobile at once. Next, I want to take more ownership of how applications are shipped and run, which is why I'm learning DevOps with Docker, CI/CD, and Kubernetes. My goal is to grow into an engineer who can design, build, and deploy complete products.",
     "education": [
       {
         "degree": "B.Tech in Artificial Intelligence and Machine Learning",
@@ -21,7 +22,14 @@
         "period": "May 2020 · CGPA 9.7"
       }
     ],
-    "interests": ["Full Stack Development", "Mobile App Development", "UI/UX Design", "Artificial Intelligence", "Machine Learning", "DevOps"],
+    "interests": [
+      "Full Stack Development",
+      "Mobile App Development",
+      "UI/UX Design",
+      "DevOps",
+      "System Design",
+      "Artificial Intelligence"
+    ],
     "resumeUrl": "/Satyasai_Nakka_Resume.pdf",
     "socialLinks": {
       "github": "https://github.com/Satya-sai-1304",
@@ -30,39 +38,153 @@
       "location": "Dwaraka Tirumala, Eluru District, Andhra Pradesh, India"
     }
   },
-
   "skills": [
-    { "category": "Frontend", "name": "React.js", "level": 90 },
-    { "category": "Frontend", "name": "JavaScript", "level": 90 },
-    { "category": "Frontend", "name": "HTML & CSS", "level": 95 },
-    { "category": "Frontend", "name": "Tailwind CSS", "level": 85 },
-    { "category": "Frontend", "name": "Bootstrap", "level": 90 },
-    { "category": "Frontend", "name": "Responsive Design", "level": 90 },
-    { "category": "Backend", "name": "Node.js", "level": 85 },
-    { "category": "Backend", "name": "Express.js", "level": 85 },
-    { "category": "Backend", "name": "REST APIs", "level": 85 },
-    { "category": "Backend", "name": "API Integration", "level": 85 },
-    { "category": "Database", "name": "MongoDB", "level": 85 },
-    { "category": "Database", "name": "SQL / MySQL", "level": 85 },
-    { "category": "Database", "name": "Database Design", "level": 80 },
-    { "category": "Mobile", "name": "Flutter", "level": 80 },
-    { "category": "Mobile", "name": "Dart", "level": 75 },
-    { "category": "UI/UX", "name": "Figma", "level": 85 },
-    { "category": "UI/UX", "name": "Wireframing", "level": 80 },
-    { "category": "UI/UX", "name": "Prototyping", "level": 80 },
-    { "category": "Tools", "name": "Git & GitHub", "level": 90 },
-    { "category": "Tools", "name": "VS Code", "level": 90 },
-    { "category": "Tools", "name": "Postman", "level": 85 },
-    { "category": "Currently Learning", "name": "DevOps Fundamentals", "level": 55 },
-    { "category": "Currently Learning", "name": "Docker & Containerization", "level": 60 },
-    { "category": "Currently Learning", "name": "CI/CD with GitHub Actions", "level": 50 },
-    { "category": "Currently Learning", "name": "Kubernetes", "level": 35 },
-    { "category": "Currently Learning", "name": "Linux & Shell Scripting", "level": 65 },
-    { "category": "Soft Skills", "name": "Agile Team Collaboration", "level": 90 },
-    { "category": "Soft Skills", "name": "Debugging & Problem Solving", "level": 90 },
-    { "category": "Soft Skills", "name": "Communication", "level": 85 }
+    {
+      "category": "Frontend",
+      "name": "React.js",
+      "level": 90
+    },
+    {
+      "category": "Frontend",
+      "name": "JavaScript",
+      "level": 90
+    },
+    {
+      "category": "Frontend",
+      "name": "HTML & CSS",
+      "level": 95
+    },
+    {
+      "category": "Frontend",
+      "name": "Tailwind CSS",
+      "level": 85
+    },
+    {
+      "category": "Frontend",
+      "name": "Bootstrap",
+      "level": 90
+    },
+    {
+      "category": "Frontend",
+      "name": "Responsive Design",
+      "level": 90
+    },
+    {
+      "category": "Backend",
+      "name": "Node.js",
+      "level": 85
+    },
+    {
+      "category": "Backend",
+      "name": "Express.js",
+      "level": 85
+    },
+    {
+      "category": "Backend",
+      "name": "REST APIs",
+      "level": 85
+    },
+    {
+      "category": "Backend",
+      "name": "API Integration",
+      "level": 85
+    },
+    {
+      "category": "Database",
+      "name": "MongoDB",
+      "level": 85
+    },
+    {
+      "category": "Database",
+      "name": "SQL / MySQL",
+      "level": 85
+    },
+    {
+      "category": "Database",
+      "name": "Database Design",
+      "level": 80
+    },
+    {
+      "category": "Mobile",
+      "name": "Flutter",
+      "level": 80
+    },
+    {
+      "category": "Mobile",
+      "name": "Dart",
+      "level": 75
+    },
+    {
+      "category": "UI/UX",
+      "name": "Figma",
+      "level": 85
+    },
+    {
+      "category": "UI/UX",
+      "name": "Wireframing",
+      "level": 80
+    },
+    {
+      "category": "UI/UX",
+      "name": "Prototyping",
+      "level": 80
+    },
+    {
+      "category": "Tools",
+      "name": "Git & GitHub",
+      "level": 90
+    },
+    {
+      "category": "Tools",
+      "name": "VS Code",
+      "level": 90
+    },
+    {
+      "category": "Tools",
+      "name": "Postman",
+      "level": 85
+    },
+    {
+      "category": "Currently Learning",
+      "name": "DevOps Fundamentals",
+      "level": 55
+    },
+    {
+      "category": "Currently Learning",
+      "name": "Docker & Containerization",
+      "level": 60
+    },
+    {
+      "category": "Currently Learning",
+      "name": "CI/CD with GitHub Actions",
+      "level": 50
+    },
+    {
+      "category": "Currently Learning",
+      "name": "Kubernetes",
+      "level": 35
+    },
+    {
+      "category": "Currently Learning",
+      "name": "Linux & Shell Scripting",
+      "level": 65
+    },
+    {
+      "category": "Soft Skills",
+      "name": "Agile Team Collaboration",
+      "level": 90
+    },
+    {
+      "category": "Soft Skills",
+      "name": "Debugging & Problem Solving",
+      "level": 90
+    },
+    {
+      "category": "Soft Skills",
+      "name": "Communication",
+      "level": 85
+    }
   ],
-
   "experience": [
     {
       "company": "Speshway Solutions",
@@ -78,34 +200,23 @@
         "Built a Grocery Delivery Application (React.js web + Flutter mobile) end to end as an individual project, now completed.",
         "Developing an Event Management Application individually, from Figma design through implementation."
       ],
-      "technologies": ["React.js", "Node.js", "Express.js", "MongoDB", "Figma", "REST APIs"],
-      "achievements": [],
+      "technologies": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Flutter",
+        "Dart",
+        "Figma",
+        "REST APIs"
+      ],
+      "achievements": [
+        "Delivered the Grocery Delivery Application on web and mobile as an individual project.",
+        "Built about 40 screens of the Fleet Management System, now in testing."
+      ],
       "order": 1
-    },
-    {
-      "company": "Spypro",
-      "role": "Machine Learning Intern",
-      "period": "Internship",
-      "responsibilities": [
-        "Gained practical exposure to machine learning concepts and model development."
-      ],
-      "technologies": ["Machine Learning"],
-      "achievements": [],
-      "order": 2
-    },
-    {
-      "company": "Skilldezire",
-      "role": "Artificial Intelligence Intern",
-      "period": "Internship",
-      "responsibilities": [
-        "Gained practical exposure to artificial intelligence concepts and development."
-      ],
-      "technologies": ["Artificial Intelligence"],
-      "achievements": [],
-      "order": 3
     }
   ],
-
   "projects": [
     {
       "title": "Grocery Delivery Application",
@@ -121,11 +232,54 @@
         "Festival offers with theme setups.",
         "End to end: Figma design, frontend, backend, and MongoDB database design."
       ],
-      "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "Flutter", "Dart", "Figma"],
+      "techStack": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Flutter",
+        "Dart",
+        "Figma"
+      ],
       "isFeatured": true,
-      "overview": "Customers browse products and place orders on web or mobile, delivery partners manage their deliveries from a dedicated Flutter app, and admins run the catalogue, orders, refunds, returns, and seasonal festival offers from the web dashboard.",
-      "architecture": "Designed in Figma, then built as a React.js web app and two Flutter apps (Customer and Delivery Partner) that all talk to one Node.js and Express REST API backed by MongoDB.",
-      "order": 1
+      "overview": "One platform that serves all three groups from a single backend. Customers browse products and place orders on the web or in the Flutter app, delivery partners manage their assigned deliveries from their own Flutter app, and admins run the catalogue, orders, refunds, returns, and festival offers from a web dashboard.",
+      "architecture": "Every screen was designed in Figma first. The web side is a React.js application, and the Customer and Delivery Partner apps are built with Flutter and Dart. All three clients talk to one Node.js and Express REST API, with MongoDB storing products, orders, users, and deliveries. I handled the full workflow myself: UI/UX design, frontend, backend, API integration, and database design.",
+      "order": 1,
+      "problemStatement": "Grocery businesses that want to sell online need much more than a product page. Customers expect to order from their phones, delivery riders need a way to receive and update orders, and staff have to handle cancellations, refunds, returns, and seasonal offers. Running separate tools for each group leads to missed orders and slow support.",
+      "featureDetails": [
+        {
+          "title": "Customer web and mobile apps",
+          "description": "Customers browse the catalogue, add items to the cart, place orders, and follow their order status from either the React.js website or the Flutter mobile app."
+        },
+        {
+          "title": "Delivery Partner app",
+          "description": "A dedicated Flutter app where delivery partners see the orders assigned to them and update each delivery as it progresses."
+        },
+        {
+          "title": "Admin dashboard",
+          "description": "A web dashboard for managing products, orders, and deliveries across the whole platform."
+        },
+        {
+          "title": "Product management",
+          "description": "Admins add, edit, and remove products, keeping the catalogue that customers see up to date."
+        },
+        {
+          "title": "Order lifecycle",
+          "description": "Full handling of an order from placement through delivery, including customer cancellations."
+        },
+        {
+          "title": "Refunds and returns/exchanges",
+          "description": "After-sale requests are handled inside the platform, so customers can request refunds or exchanges and admins can process them."
+        },
+        {
+          "title": "Festival offers with themes",
+          "description": "Admins can run seasonal festival offers and switch the storefront to a matching theme for the occasion."
+        },
+        {
+          "title": "One shared REST API",
+          "description": "The web app and both mobile apps use the same Node.js and Express REST API and MongoDB database, so data stays consistent everywhere."
+        }
+      ]
     },
     {
       "title": "Fleet Management System",
@@ -141,9 +295,48 @@
         "REST APIs with Node.js and Express.js.",
         "MongoDB CRUD for trips, drivers, and admin data."
       ],
-      "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "Figma"],
+      "techStack": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Figma"
+      ],
       "isFeatured": false,
-      "order": 2
+      "order": 2,
+      "problemStatement": "Fleet operators need to know which driver is on which trip, where vehicles are right now, and what has been completed. When this lives in spreadsheets and phone calls, administrators have no live picture of their fleet and drivers have no single place to see their work.",
+      "overview": "A web platform with separate experiences for administrators and drivers. Admins manage drivers and trips and follow vehicles through live tracking, drivers see and work through their assigned trips, and public-facing pages present the service to visitors.",
+      "featureDetails": [
+        {
+          "title": "Admin module",
+          "description": "Administrators manage drivers, trips, and platform data from a central dashboard."
+        },
+        {
+          "title": "Driver module",
+          "description": "Drivers get their own workflow for viewing and handling the trips assigned to them."
+        },
+        {
+          "title": "Trip management",
+          "description": "Trips are created, assigned, and tracked through their lifecycle, with the data stored in MongoDB."
+        },
+        {
+          "title": "Live tracking",
+          "description": "A live tracking module lets administrators follow vehicles and trips in progress."
+        },
+        {
+          "title": "Public-facing pages",
+          "description": "Pages that introduce the platform to visitors outside the admin and driver areas."
+        },
+        {
+          "title": "Figma to React",
+          "description": "I designed screens in Figma and turned them into responsive React.js interfaces, about 40 screens in total."
+        },
+        {
+          "title": "REST APIs and data",
+          "description": "Node.js and Express.js APIs connect the frontend modules to the backend, with CRUD operations in MongoDB for trips, drivers, and admin data."
+        }
+      ],
+      "architecture": "A React.js frontend connected through REST APIs built with Node.js and Express.js to a MongoDB database that stores trips, drivers, and admin data. Built by a 3-member team with daily development meetings; my part covered about 40 screens across the Driver, Admin, Trips, Live Tracking, and public modules, plus the APIs and database work behind them."
     },
     {
       "title": "Event Management Application",
@@ -159,7 +352,17 @@
         "Merchant services, decorations, and photo galleries.",
         "Reviews, saved events, complaints, and venue maps."
       ],
-      "techStack": ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Socket.io", "Razorpay", "Figma"],
+      "techStack": [
+        "React.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Socket.io",
+        "Razorpay",
+        "Figma"
+      ],
       "isFeatured": false,
       "overview": "The platform brings event organisers, service merchants, and attendees together. Users browse and book events, pay online, and receive QR-code tickets. Merchants list services such as decorations and manage their payouts, while admins oversee bookings, categories, complaints, and platform settings.",
       "problemStatement": "Planning and attending events usually means juggling separate tools for discovery, booking, scheduling, payments, and vendor coordination. This application puts those workflows in one place for attendees, merchants, and administrators.",
@@ -170,7 +373,45 @@
         "API rate limiting with express-rate-limit.",
         "Audit logs recording administrative actions."
       ],
-      "order": 3
+      "order": 3,
+      "featureDetails": [
+        {
+          "title": "Event creation and scheduling",
+          "description": "Organisers create events and manage their dates through dedicated dashboards and workflows."
+        },
+        {
+          "title": "Bookings and QR-code tickets",
+          "description": "Attendees book events and receive QR-code tickets for entry."
+        },
+        {
+          "title": "Online payments",
+          "description": "Payments run through Razorpay, with support for coupons, wallets, and merchant payouts."
+        },
+        {
+          "title": "Merchant services",
+          "description": "Merchants list services such as decorations and showcase their work in photo galleries."
+        },
+        {
+          "title": "Real-time chat and notifications",
+          "description": "Socket.io delivers live chat messages and notifications to users as things happen."
+        },
+        {
+          "title": "Flexible sign-in",
+          "description": "Users can sign in with email and password, or with their Google or GitHub account."
+        },
+        {
+          "title": "Reviews and saved events",
+          "description": "Attendees review events and save the ones they are interested in."
+        },
+        {
+          "title": "Complaints and admin oversight",
+          "description": "Users raise complaints, and admins manage bookings, categories, banners, and settings, with audit logs of administrative actions."
+        },
+        {
+          "title": "Venue maps",
+          "description": "Event locations are shown on interactive maps."
+        }
+      ]
     },
     {
       "title": "Vehicle Care Center",
@@ -181,10 +422,47 @@
         "Admin dashboard for bookings and services.",
         "Email notifications and real-time updates."
       ],
-      "techStack": ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Socket.io"],
+      "techStack": [
+        "React.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Socket.io"
+      ],
       "github": "https://github.com/Satya-sai-1304/VechicleCareCenter",
       "isFeatured": false,
-      "order": 4
+      "order": 4,
+      "problemStatement": "Booking a vehicle service usually means calling a service center and hoping a slot is free, while the center tracks bookings, staff, and services by hand.",
+      "overview": "An online platform where customers book vehicle services and service centers manage everything behind those bookings, including their services, stores, and staff, from an admin dashboard.",
+      "featureDetails": [
+        {
+          "title": "Online service booking",
+          "description": "Customers choose a service and book it online instead of calling the service center."
+        },
+        {
+          "title": "Service center management",
+          "description": "Service centers, their stores, and the services they offer are managed inside the platform."
+        },
+        {
+          "title": "Staff management",
+          "description": "Staff records are kept alongside the bookings they handle."
+        },
+        {
+          "title": "Admin dashboard",
+          "description": "Administrators oversee bookings and services from one place."
+        },
+        {
+          "title": "Notifications and live updates",
+          "description": "Email notifications (Nodemailer) and real-time updates (Socket.io) keep customers informed about their bookings."
+        },
+        {
+          "title": "Secure accounts",
+          "description": "JWT authentication with bcrypt-hashed passwords protects user accounts."
+        }
+      ],
+      "architecture": "A React + TypeScript frontend (Vite, Tailwind CSS, shadcn/ui) connected to a Node.js and Express REST API with MongoDB, with Socket.io for real-time updates and Nodemailer for emails."
     },
     {
       "title": "School Management System",
@@ -194,10 +472,34 @@
         "School class that manages lists of students and teachers.",
         "Polymorphic display methods for each entity."
       ],
-      "techStack": ["Java", "OOP"],
+      "techStack": [
+        "Java",
+        "OOP"
+      ],
       "github": "https://github.com/Satya-sai-1304/SchoolManagementSystem",
       "isFeatured": false,
-      "order": 5
+      "order": 5,
+      "problemStatement": "A practice project to model a real-world school in code and apply object-oriented programming principles properly.",
+      "overview": "A Java console application with Student, Teacher, and School classes. The School class keeps lists of students and teachers, and the program displays their details.",
+      "featureDetails": [
+        {
+          "title": "Student records",
+          "description": "Each student has a name, roll number, and grade, stored in private fields accessed through getters and setters."
+        },
+        {
+          "title": "Teacher records",
+          "description": "Each teacher has a name, subject, and salary, encapsulated the same way."
+        },
+        {
+          "title": "School registry",
+          "description": "The School class manages the lists of students and teachers and hides how they are stored."
+        },
+        {
+          "title": "OOP concepts in practice",
+          "description": "Demonstrates classes and objects, encapsulation, polymorphic display methods, and basic abstraction."
+        }
+      ],
+      "architecture": "Plain Java with four classes: Main, School, Student, and Teacher."
     }
   ]
 }

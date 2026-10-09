@@ -49,7 +49,7 @@ export const Resume: React.FC<ResumeProps> = ({ profile, skills, experience }) =
               {profile.resumeUrl ? (
                 <>
                   <p className="text-secondaryText text-sm leading-relaxed mb-8 font-light">
-                    Download my full CV with education, internships, projects, and technical skills.
+                    Download my full CV with professional experience, projects, technical skills, and education.
                   </p>
                   <a
                     href={profile.resumeUrl}
@@ -63,7 +63,7 @@ export const Resume: React.FC<ResumeProps> = ({ profile, skills, experience }) =
               ) : (
                 <>
                   <p className="text-secondaryText text-sm leading-relaxed mb-8 font-light">
-                    Email me and I'll send you my latest CV with education, internships, projects, and technical skills.
+                    Email me and I'll send you my latest CV with professional experience, projects, technical skills, and education.
                   </p>
                   <a
                     href={`mailto:${profile.socialLinks.email}?subject=${encodeURIComponent('CV request')}`}

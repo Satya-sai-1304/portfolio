@@ -15,6 +15,8 @@ export interface ProfileData {
   education: EducationItem[];
   interests: string[];
   resumeUrl: string;
+  // Month professional work started, "YYYY-MM"; used to show years/months of experience
+  experienceStart?: string;
   socialLinks: {
     github: string;
     linkedin: string;
@@ -44,11 +46,19 @@ export interface ExperienceData {
 
 export type ProjectStatus = 'Completed' | 'In Testing' | 'In Development';
 
+export interface FeatureDetail {
+  title: string;
+  description: string;
+}
+
 export interface ProjectData {
   _id?: string;
   title: string;
   description: string;
+  // Short lines shown on the card
   features: string[];
+  // Full explanations shown in the project details window
+  featureDetails?: FeatureDetail[];
   techStack: string[];
   challenges?: string;
   solutions?: string;

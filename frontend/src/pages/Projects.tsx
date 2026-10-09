@@ -1,61 +1,14 @@
-import React, { useState } from 'react';
-import { ExternalLink, ShieldCheck, Cpu, Code2, KeyRound, AlertTriangle, CheckSquare, Building2, CircleCheck, FlaskConical, Hammer, UserRound, ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import React, { useCallback, useState } from 'react';
+import { ExternalLink, CheckSquare, Building2, UserRound, ArrowUpRight } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { GithubIcon } from '../components/Icons';
-import type { ProjectData, ProjectStatus } from '../services/api';
+import ProjectStatusBadge from '../components/ProjectStatusBadge';
+import ProjectModal from '../components/ProjectModal';
+import type { ProjectData } from '../services/api';
 
 interface ProjectsProps {
   projects: ProjectData[];
 }
-
-const statusStyles: Record<ProjectStatus, { label: string; className: string; dot: string; Icon: typeof CircleCheck }> = {
-  'Completed': {
-    label: 'Completed',
-    className: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/25',
-    dot: 'bg-emerald-400',
-    Icon: CircleCheck,
-  },
-  'In Testing': {
-    label: 'In Testing',
-    className: 'text-amber-400 bg-amber-500/10 border-amber-500/25',
-    dot: 'bg-amber-400',
-    Icon: FlaskConical,
-  },
-  'In Development': {
-    label: 'In Development',
-    className: 'text-accentBlue bg-primaryBlue/10 border-primaryBlue/25',
-    dot: 'bg-accentBlue',
-    Icon: Hammer,
-  },
-};
-
-const StatusBadge: React.FC<{ status: ProjectStatus }> = ({ status }) => {
-  const reduceMotion = useReducedMotion();
-  const { label, className, dot, Icon } = statusStyles[status];
-  const isActive = status !== 'Completed';
-
-  return (
-    <span className={`inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full border ${className}`}>
-      {isActive ? (
-        <span className="relative flex w-2 h-2">
-          <span className={`absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping motion-reduce:animate-none ${dot}`} />
-          <span className={`relative inline-flex w-2 h-2 rounded-full ${dot}`} />
-        </span>
-      ) : (
-        <motion.span
-          className="inline-flex"
-          initial={reduceMotion ? false : { scale: 0, rotate: -90 }}
-          whileInView={{ scale: 1, rotate: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: 'spring', stiffness: 260, damping: 15, delay: 0.3 }}
-        >
-          <Icon className="w-3.5 h-3.5" />
-        </motion.span>
-      )}
-      {label}
-    </span>
-  );
-};
 
 const listVariants = {
   hidden: {},
@@ -72,13 +25,35 @@ const badgeVariants = {
   visible: { opacity: 1, scale: 1, transition: { type: 'spring' as const, stiffness: 300, damping: 18 } }
 };
 
+// Cards open on a click anywhere (mouse); the title is a real button for keyboard and screen readers.
+const OpenDetailsTitle: React.FC<{ project: ProjectData; onOpen: () => void; className: string }> = ({ project, onOpen, className }) => (
+  <h4 className={className}>
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+        onOpen();
+      }}
+      className="text-left rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryBlue focus-visible:ring-offset-4 focus-visible:ring-offset-portfolioSurface"
+      aria-label={`${project.title}: view full project details`}
+    >
+      {project.title}
+    </button>
+  </h4>
+);
+
+const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
+
+const ViewDetailsHint: React.FC = () => (
+  <span className="mt-5 self-start flex items-center gap-1 text-xs font-semibold text-accentBlue group-hover:text-white transition-colors duration-300" aria-hidden="true">
+    View full details
+    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+  </span>
+);
+
 // Company project card. The featured one spans the full row and gets an animated border.
-const WorkProjectCard: React.FC<{ project: ProjectData; index: number }> = ({ project, index }) => {
+const WorkProjectCard: React.FC<{ project: ProjectData; index: number; onOpen: () => void }> = ({ project, index, onOpen }) => {
   const reduceMotion = useReducedMotion();
-  const [open, setOpen] = useState(false);
   const featured = project.isFeatured;
-  const hasDetails = Boolean(project.overview || project.problemStatement || project.architecture || project.securityFeatures?.length);
-  const detailsId = `project-details-${index}`;
 
   return (
     <motion.article
@@ -86,7 +61,8 @@ const WorkProjectCard: React.FC<{ project: ProjectData; index: number }> = ({ pr
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, ease: 'easeOut', delay: featured ? 0 : 0.1 * index }}
-      className={`relative rounded-card p-px overflow-hidden ${featured ? 'lg:col-span-2' : ''}`}
+      onClick={onOpen}
+      className={`relative rounded-card p-px overflow-hidden group cursor-pointer ${featured ? 'lg:col-span-2' : ''}`}
     >
       {/* Border: rotating gradient on the featured card, plain divider on the others */}
       {featured ? (
@@ -97,18 +73,18 @@ const WorkProjectCard: React.FC<{ project: ProjectData; index: number }> = ({ pr
           transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
         />
       ) : (
-        <div aria-hidden="true" className="absolute inset-0 bg-divider" />
+        <div aria-hidden="true" className="absolute inset-0 bg-divider group-hover:bg-primaryBlue/40 transition-colors duration-300" />
       )}
 
       <motion.div
         whileHover={reduceMotion ? undefined : { y: -3 }}
         transition={{ duration: 0.2 }}
-        className="relative h-full bg-portfolioSurface rounded-card p-6 md:p-8 flex flex-col text-left overflow-hidden"
+        className="relative h-full bg-portfolioSurface rounded-card p-6 md:p-8 flex flex-col text-left overflow-hidden cursor-pointer"
       >
         {featured && <div className="absolute -top-24 -right-24 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />}
 
         <div className="relative flex flex-wrap items-center gap-2.5 mb-4">
-          {project.status && <StatusBadge status={project.status} />}
+          {project.status && <ProjectStatusBadge status={project.status} />}
           {featured && (
             <span className="text-[10px] font-mono uppercase tracking-widest text-secondaryText bg-portfolioBg px-2.5 py-1 rounded-full border border-divider">
               Featured
@@ -116,9 +92,11 @@ const WorkProjectCard: React.FC<{ project: ProjectData; index: number }> = ({ pr
           )}
         </div>
 
-        <h4 className={`relative font-heading font-black text-white mb-2 ${featured ? 'text-2xl md:text-3xl' : 'text-xl'}`}>
-          {project.title}
-        </h4>
+        <OpenDetailsTitle
+          project={project}
+          onOpen={onOpen}
+          className={`font-heading font-black text-white mb-2 group-hover:text-primaryBlue transition-colors duration-300 ${featured ? 'text-2xl md:text-3xl' : 'text-xl'}`}
+        />
 
         {project.role && (
           <p className="relative flex items-center gap-1.5 text-xs text-secondaryText mb-4">
@@ -164,84 +142,89 @@ const WorkProjectCard: React.FC<{ project: ProjectData; index: number }> = ({ pr
           ))}
         </motion.div>
 
-        {hasDetails && (
-          <>
-            <button
-              onClick={() => setOpen(!open)}
-              aria-expanded={open}
-              aria-controls={detailsId}
-              className="relative mt-5 self-start flex items-center gap-1.5 text-xs font-semibold text-accentBlue hover:text-white transition-colors duration-300"
-            >
-              {open ? 'Hide details' : 'View details'}
-              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
-            </button>
-
-            <AnimatePresence initial={false}>
-              {open && (
-                <motion.div
-                  id={detailsId}
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.35, ease: 'easeInOut' }}
-                  className="relative overflow-hidden"
-                >
-                  <div className="mt-5 pt-5 border-t border-divider/50 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-                    {project.problemStatement && (
-                      <div>
-                        <h5 className="font-heading font-bold text-white mb-2 flex items-center gap-2">
-                          <AlertTriangle className="w-4 h-4 text-amber-500" />
-                          The Problem
-                        </h5>
-                        <p className="text-secondaryText leading-relaxed font-light">{project.problemStatement}</p>
-                      </div>
-                    )}
-                    {project.overview && (
-                      <div>
-                        <h5 className="font-heading font-bold text-white mb-2 flex items-center gap-2">
-                          <Code2 className="w-4 h-4 text-primaryBlue" />
-                          The Solution
-                        </h5>
-                        <p className="text-secondaryText leading-relaxed font-light">{project.overview}</p>
-                      </div>
-                    )}
-                    {project.architecture && (
-                      <div>
-                        <h5 className="font-heading font-bold text-white mb-2 flex items-center gap-2">
-                          <Cpu className="w-4 h-4 text-accentBlue" />
-                          How It's Built
-                        </h5>
-                        <p className="text-secondaryText leading-relaxed font-light">{project.architecture}</p>
-                      </div>
-                    )}
-                    {project.securityFeatures && project.securityFeatures.length > 0 && (
-                      <div>
-                        <h5 className="font-heading font-bold text-white mb-2 flex items-center gap-2">
-                          <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                          Security
-                        </h5>
-                        <ul className="flex flex-col gap-2 text-xs text-secondaryText font-light">
-                          {project.securityFeatures.map((sec, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <KeyRound className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                              <span>{sec}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </>
-        )}
+        <ViewDetailsHint />
       </motion.div>
     </motion.article>
   );
 };
 
+const PersonalProjectCard: React.FC<{ project: ProjectData; index: number; onOpen: () => void }> = ({ project, index, onOpen }) => (
+  <motion.article
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-60px' }}
+    transition={{ duration: 0.5, delay: 0.1 * index }}
+    whileHover={{ y: -5 }}
+    onClick={onOpen}
+    className="relative bg-portfolioSurface border border-divider hover:border-primaryBlue/35 hover:shadow-glow rounded-card p-6 flex flex-col justify-between transition-[border-color,box-shadow] duration-300 text-left group cursor-pointer"
+  >
+    <div>
+      <OpenDetailsTitle
+        project={project}
+        onOpen={onOpen}
+        className="font-heading font-bold text-lg text-white mb-3 group-hover:text-primaryBlue transition-colors duration-300"
+      />
+      <p className="text-secondaryText text-xs leading-relaxed mb-6 font-light">
+        {project.description}
+      </p>
+
+      <ul className="flex flex-col gap-1.5 mb-6 text-xs text-secondaryText/80 font-light">
+        {project.features.slice(0, 3).map((feat, idx) => (
+          <li key={idx} className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-accentBlue rounded-full shrink-0" />
+            <span>{feat}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <div className="flex flex-wrap gap-2.5 mb-6 border-t border-divider/40 pt-4">
+        {project.techStack.map((tech) => (
+          <span key={tech} className="text-[10px] bg-portfolioBg text-primaryText px-2 py-0.5 rounded-full border border-divider">
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4" onClick={stopPropagation}>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs text-secondaryText hover:text-white transition-colors duration-300"
+            >
+              <GithubIcon className="w-4 h-4" />
+              <span>Code</span>
+            </a>
+          )}
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs text-secondaryText hover:text-white transition-colors duration-300"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>Demo</span>
+            </a>
+          )}
+        </div>
+        <span className="flex items-center gap-1 text-xs font-semibold text-accentBlue group-hover:text-white transition-colors duration-300" aria-hidden="true">
+          Details
+          <ArrowUpRight className="w-4 h-4" />
+        </span>
+      </div>
+    </div>
+  </motion.article>
+);
+
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  const [selected, setSelected] = useState<ProjectData | null>(null);
+  const closeModal = useCallback(() => setSelected(null), []);
+
   const sorted = [...projects].sort((a, b) => a.order - b.order);
   const workProjects = sorted.filter((p) => p.company);
   const companies = [...new Set(workProjects.map((p) => p.company))];
@@ -262,6 +245,9 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             Selected <span className="text-primaryBlue">Work</span>
           </h2>
           <div className="w-12 h-1 bg-primaryBlue rounded-full mt-4" />
+          <p className="text-secondaryText text-sm font-light mt-5">
+            Click any project to see the problem, solution, and every feature in detail.
+          </p>
         </div>
 
         {/* Professional work */}
@@ -276,7 +262,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {orderedWork.map((project, i) => (
-                <WorkProjectCard key={project.title} project={project} index={i} />
+                <WorkProjectCard key={project.title} project={project} index={i} onOpen={() => setSelected(project)} />
               ))}
             </div>
           </div>
@@ -290,75 +276,16 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {personalProjects.map((proj, i) => (
-                <motion.div
-                  key={proj.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.5, delay: 0.1 * i }}
-                  whileHover={{ y: -5 }}
-                  className="bg-portfolioSurface border border-divider hover:border-primaryBlue/35 hover:shadow-glow rounded-card p-6 flex flex-col justify-between transition-[border-color,box-shadow] duration-300 text-left group"
-                >
-                  <div>
-                    <h4 className="font-heading font-bold text-lg text-white mb-3 group-hover:text-primaryBlue transition-colors duration-300">
-                      {proj.title}
-                    </h4>
-                    <p className="text-secondaryText text-xs leading-relaxed mb-6 font-light">
-                      {proj.description}
-                    </p>
-
-                    <ul className="flex flex-col gap-1.5 mb-6 text-xs text-secondaryText/80 font-light">
-                      {proj.features.slice(0, 3).map((feat, idx) => (
-                        <li key={idx} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-accentBlue rounded-full shrink-0" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <div className="flex flex-wrap gap-2.5 mb-6 border-t border-divider/40 pt-4">
-                      {proj.techStack.map((tech) => (
-                        <span key={tech} className="text-[10px] bg-portfolioBg text-primaryText px-2 py-0.5 rounded-full border border-divider">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-4">
-                      {proj.github && (
-                        <a
-                          href={proj.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1.5 text-xs text-secondaryText hover:text-white transition-colors duration-300"
-                        >
-                          <GithubIcon className="w-4 h-4" />
-                          <span>Code</span>
-                        </a>
-                      )}
-                      {proj.live && (
-                        <a
-                          href={proj.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1.5 text-xs text-secondaryText hover:text-white transition-colors duration-300"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span>Demo</span>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
+              {personalProjects.map((project, i) => (
+                <PersonalProjectCard key={project.title} project={project} index={i} onOpen={() => setSelected(project)} />
               ))}
             </div>
           </div>
         )}
 
       </div>
+
+      <ProjectModal project={selected} onClose={closeModal} />
     </section>
   );
 };

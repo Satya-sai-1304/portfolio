@@ -7,7 +7,24 @@ interface AboutProps {
   profile: ProfileData;
 }
 
+// "2025-12" -> "10 months" / "1 year 3 months", counted up to today
+const formatExperience = (start?: string): string | null => {
+  const match = start?.match(/^(\d{4})-(\d{2})$/);
+  if (!match) return null;
+  const now = new Date();
+  const months = (now.getFullYear() - Number(match[1])) * 12 + (now.getMonth() + 1 - Number(match[2]));
+  if (months < 1) return null;
+  const years = Math.floor(months / 12);
+  const rest = months % 12;
+  const parts = [];
+  if (years) parts.push(`${years} year${years > 1 ? 's' : ''}`);
+  if (rest) parts.push(`${rest} month${rest > 1 ? 's' : ''}`);
+  return parts.join(' ');
+};
+
 export const About: React.FC<AboutProps> = ({ profile }) => {
+  const experienceLabel = formatExperience(profile.experienceStart);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -64,10 +81,12 @@ export const About: React.FC<AboutProps> = ({ profile }) => {
                   <MapPin className="w-4.5 h-4.5 text-primaryBlue" />
                   <span>Located in: <strong className="text-white font-medium">{profile.socialLinks.location}</strong></span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Calendar className="w-4.5 h-4.5 text-accentBlue" />
-                  <span>Actively Coding Since: <strong className="text-white font-medium">2020</strong></span>
-                </div>
+                {experienceLabel && (
+                  <div className="flex items-center gap-3">
+                    <Calendar className="w-4.5 h-4.5 text-accentBlue" />
+                    <span>Professional Experience: <strong className="text-white font-medium">{experienceLabel}</strong></span>
+                  </div>
+                )}
               </div>
             </div>
 

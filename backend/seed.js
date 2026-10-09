@@ -31,7 +31,7 @@ const seedData = async () => {
     console.log('Seeding Skills...');
     await Skill.create(data.skills);
 
-    console.log('Seeding Internships/Experience...');
+    console.log('Seeding Experience...');
     await Experience.create(data.experience);
 
     console.log('Seeding Projects...');
