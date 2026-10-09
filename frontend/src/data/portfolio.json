@@ -1,0 +1,168 @@
+{
+  "profile": {
+    "name": "Nakka Satya Sai",
+    "title": "Full Stack Software Engineer",
+    "bio": "Currently pursuing studies in Artificial Intelligence and Machine Learning (AIML) with a focus on building intelligent systems, machine learning algorithms, and data-driven decision-making. Developing expertise in key areas like data preprocessing, supervised and unsupervised learning, and model optimization to create innovative solutions for real-world challenges.",
+    "careerJourney": "My career journey started with a deep interest in software systems and machine learning. Through internships at Spypro and Skilldezire, I have designed machine learning models, built AI-powered OCR tools, and developed full-stack web applications. I bridge the gap between AI/ML concepts and robust full-stack software development.",
+    "education": [
+      {
+        "degree": "Bachelor of Technology in Computer Science & Engineering (AIML)",
+        "institution": "Sir C R Reddy College of Engineering",
+        "period": "2022 - 2026 (8.82 CGPA)"
+      },
+      {
+        "degree": "Intermediate (M.P.C)",
+        "institution": "Venkateswara Junior College",
+        "period": "2020 - 2022 (9.1 CGPA)"
+      },
+      {
+        "degree": "SSC",
+        "institution": "Manasa EM High School",
+        "period": "2020 (9.7 CGPA)"
+      }
+    ],
+    "interests": ["Artificial Intelligence", "Machine Learning", "Full Stack Development", "Mobile App Development (Flutter)", "Database Management", "Data Visualization"],
+    "resumeUrl": "",
+    "socialLinks": {
+      "github": "https://github.com/Satya-sai-1304",
+      "linkedin": "",
+      "email": "satyasainakka04@gmail.com",
+      "location": "Dwaraka Tirumala, Andhra Pradesh, India"
+    }
+  },
+
+  "skills": [
+    { "category": "Frontend", "name": "React", "level": 90 },
+    { "category": "Frontend", "name": "TypeScript", "level": 80 },
+    { "category": "Frontend", "name": "Tailwind CSS", "level": 85 },
+    { "category": "Frontend", "name": "Bootstrap", "level": 90 },
+    { "category": "Frontend", "name": "HTML5 & CSS3", "level": 95 },
+    { "category": "Frontend", "name": "JavaScript", "level": 90 },
+    { "category": "Backend", "name": "Python", "level": 95 },
+    { "category": "Backend", "name": "Java", "level": 85 },
+    { "category": "Backend", "name": "Data Structures & Algorithms (DSA)", "level": 85 },
+    { "category": "Backend", "name": "Flask", "level": 80 },
+    { "category": "Backend", "name": "Node.js & Express", "level": 80 },
+    { "category": "Database", "name": "SQL / MySQL", "level": 90 },
+    { "category": "Database", "name": "MongoDB", "level": 85 },
+    { "category": "Cloud", "name": "Vercel", "level": 75 },
+    { "category": "Cloud", "name": "Render", "level": 70 },
+    { "category": "Cloud", "name": "MongoDB Atlas", "level": 75 },
+    { "category": "Tools", "name": "Git & GitHub", "level": 90 },
+    { "category": "Tools", "name": "Excel", "level": 85 },
+    { "category": "Tools", "name": "Power BI", "level": 80 },
+    { "category": "Currently Learning", "name": "DevOps Fundamentals", "level": 55 },
+    { "category": "Currently Learning", "name": "Docker & Containerization", "level": 60 },
+    { "category": "Currently Learning", "name": "CI/CD with GitHub Actions", "level": 50 },
+    { "category": "Currently Learning", "name": "Kubernetes", "level": 35 },
+    { "category": "Currently Learning", "name": "Linux & Shell Scripting", "level": 65 },
+    { "category": "Soft Skills", "name": "Problem Solving", "level": 95 },
+    { "category": "Soft Skills", "name": "Team Collaboration", "level": 90 },
+    { "category": "Soft Skills", "name": "Communication", "level": 90 }
+  ],
+
+  "experience": [
+    {
+      "company": "Skilldezire",
+      "role": "Artificial Intelligence Intern",
+      "period": "August 2024",
+      "responsibilities": [
+        "Developed an AI & ML-based Optical Character Recognition (OCR) system using Tesseract and CNN models.",
+        "Integrated Flask backend services and cloud components for deployment.",
+        "Applied deep learning models with OpenCV, TensorFlow, and PyTorch to enhance character recognition accuracy."
+      ],
+      "technologies": ["Python", "Flask", "Tesseract OCR", "CNN", "OpenCV", "TensorFlow", "PyTorch"],
+      "achievements": [
+        "Successfully built and deployed a functional OCR pipeline handling multiple fonts.",
+        "Optimized image preprocessing filters reducing OCR character error rates by 18%."
+      ],
+      "order": 1
+    },
+    {
+      "company": "Spypro",
+      "role": "Machine Learning Intern",
+      "period": "May 2024 - July 2024",
+      "responsibilities": [
+        "Built predictive models using supervised learning algorithms to improve data-driven insights.",
+        "Applied data preprocessing techniques like feature scaling and normalization to enhance model accuracy.",
+        "Assisted in data visualization tasks using Matplotlib and Power BI to share performance results."
+      ],
+      "technologies": ["Python", "Machine Learning", "Pandas", "Scikit-Learn", "Matplotlib", "Power BI"],
+      "achievements": [
+        "Achieved 92% model accuracy on primary classification datasets using ensemble methods.",
+        "Automated data scrubbing operations reducing manual file cleanup workflows."
+      ],
+      "order": 2
+    }
+  ],
+
+  "projects": [
+    {
+      "title": "Grocery Management System",
+      "description": "A full-stack grocery store platform for managing inventory, product catalogues, customer orders, and billing, currently under active development.",
+      "features": [
+        "Live inventory tracking with low-stock alerts.",
+        "Product catalogue with categories, pricing, and search.",
+        "Cart, order placement, and billing workflow.",
+        "Admin dashboard for sales and stock insights."
+      ],
+      "techStack": ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      "isFeatured": false,
+      "inProgress": true,
+      "progress": 65,
+      "order": 0
+    },
+    {
+      "title": "Event Hub",
+      "description": "A full-stack event booking marketplace where users discover and book events, merchants sell services and decorations, and admins manage the whole platform.",
+      "features": [
+        "Event discovery, booking, and QR-code tickets.",
+        "Razorpay payments with coupons, wallets, and merchant payouts.",
+        "Real-time chat and notifications with Socket.io.",
+        "Google and GitHub sign-in alongside email login.",
+        "Merchant services, decorations, and photo galleries.",
+        "Reviews, saved events, complaints, and venue maps."
+      ],
+      "techStack": ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Node.js", "Express", "MongoDB", "Mongoose", "Socket.io", "Razorpay", "Cloudinary"],
+      "github": "https://github.com/Satya-sai-1304/Event_Hub",
+      "isFeatured": true,
+      "overview": "Event Hub brings event organisers, service merchants, and attendees onto one platform. Users browse and book events, pay online, and receive QR-code tickets. Merchants list services such as decorations and manage their payouts, while admins oversee bookings, banners, categories, complaints, and platform settings.",
+      "problemStatement": "Planning and attending events usually means juggling separate tools for discovery, ticketing, payments, vendor coordination, and support. Event Hub puts these workflows in one place for attendees, merchants, and administrators.",
+      "architecture": "A React + TypeScript single-page app (Vite, Tailwind CSS, shadcn/ui) talks to an Express REST API backed by MongoDB through Mongoose, with 20+ data models covering events, bookings, tickets, wallets, and payouts. Socket.io powers live chat and notifications, Razorpay handles payments, Cloudinary stores gallery images, and Nodemailer sends booking emails.",
+      "securityFeatures": [
+        "JWT authentication with bcrypt-hashed passwords.",
+        "Google and GitHub OAuth sign-in through Passport.",
+        "API rate limiting with express-rate-limit.",
+        "Audit logs recording administrative actions."
+      ],
+      "order": 1
+    },
+    {
+      "title": "Vehicle Care Center",
+      "description": "A vehicle service booking platform that connects customers with service centers, with dashboards for customers, staff, and administrators.",
+      "features": [
+        "Online booking for vehicle services.",
+        "Service center, store, and staff management.",
+        "Admin dashboard for bookings and services.",
+        "Email notifications and real-time updates."
+      ],
+      "techStack": ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Node.js", "Express", "MongoDB", "Socket.io"],
+      "github": "https://github.com/Satya-sai-1304/VechicleCareCenter",
+      "isFeatured": false,
+      "order": 2
+    },
+    {
+      "title": "School Management System",
+      "description": "A Java console application that models a school with students, teachers, and a school registry, built to practise core object-oriented programming concepts.",
+      "features": [
+        "Student and Teacher classes with encapsulated fields.",
+        "School class that manages lists of students and teachers.",
+        "Polymorphic display methods for each entity."
+      ],
+      "techStack": ["Java", "OOP"],
+      "github": "https://github.com/Satya-sai-1304/SchoolManagementSystem",
+      "isFeatured": false,
+      "order": 3
+    }
+  ]
+}

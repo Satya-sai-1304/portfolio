@@ -54,21 +54,13 @@ const ProjectSchema = new mongoose.Schema({
   // Actively being built (shown in the "Currently Building" spotlight)
   inProgress: { type: Boolean, default: false },
   progress: { type: Number, min: 0, max: 100 },
-  // Details for Featured project (Fleet Management System)
+  // Case-study details shown for the featured project
   overview: { type: String },
   problemStatement: { type: String },
   architecture: { type: String },
   securityFeatures: [String],
   keyLearnings: [String],
   order: { type: Number, default: 0 }
-});
-
-// Certification Schema
-const CertificationSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  issuer: { type: String, required: true },
-  date: { type: String, required: true },
-  link: { type: String }
 });
 
 // Contact Schema
@@ -84,6 +76,5 @@ module.exports = {
   Skill: mongoose.model('Skill', SkillSchema),
   Experience: mongoose.model('Experience', ExperienceSchema),
   Project: mongoose.model('Project', ProjectSchema),
-  Certification: mongoose.model('Certification', CertificationSchema),
   Contact: mongoose.model('Contact', ContactSchema)
 };

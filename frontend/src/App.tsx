@@ -5,7 +5,6 @@ import About from './pages/About';
 import Skills from './pages/Skills';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
-import Certifications from './pages/Certifications';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
@@ -13,15 +12,13 @@ import {
   fetchProfile, 
   fetchSkills, 
   fetchExperience, 
-  fetchProjects, 
-  fetchCertifications
+  fetchProjects
 } from './services/api';
 import type {
   ProfileData,
   SkillData,
   ExperienceData,
-  ProjectData,
-  CertificationData
+  ProjectData
 } from './services/api';
 
 function App() {
@@ -30,24 +27,21 @@ function App() {
   const [skills, setSkills] = useState<SkillData[]>([]);
   const [experience, setExperience] = useState<ExperienceData[]>([]);
   const [projects, setProjects] = useState<ProjectData[]>([]);
-  const [certifications, setCertifications] = useState<CertificationData[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [profileData, skillsData, expData, projData, certsData] = await Promise.all([
+        const [profileData, skillsData, expData, projData] = await Promise.all([
           fetchProfile(),
           fetchSkills(),
           fetchExperience(),
-          fetchProjects(),
-          fetchCertifications()
+          fetchProjects()
         ]);
         setProfile(profileData);
         setSkills(skillsData);
         setExperience(expData);
         setProjects(projData);
-        setCertifications(certsData);
       } catch (error) {
         console.error('Failed to load portfolio MERN assets:', error);
       } finally {
@@ -60,7 +54,7 @@ function App() {
 
   // Intersection Observer to detect scroll active sections
   useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certifications', 'resume', 'contact'];
+    const sections = ['home', 'about', 'skills', 'experience', 'projects', 'resume', 'contact'];
     
     const observerOptions = {
       root: null,
@@ -136,12 +130,11 @@ function App() {
         <Skills skills={skills} />
         <Experience experience={experience} />
         <Projects projects={projects} />
-        <Certifications certifications={certifications} />
-        <Resume profile={profile} />
+        <Resume profile={profile} skills={skills} experience={experience} />
         <Contact profile={profile} />
       </main>
 
-      <Footer />
+      <Footer profile={profile} />
     </div>
   );
 }

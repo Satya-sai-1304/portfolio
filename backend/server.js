@@ -3,7 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const connectDB = require('./config/db');
-const { Profile, Skill, Experience, Project, Certification, Contact } = require('./models/models');
+const { Profile, Skill, Experience, Project, Contact } = require('./models/models');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -44,15 +44,6 @@ app.get('/api/projects', async (req, res) => {
   try {
     const projects = await Project.find().sort({ order: 1 });
     res.json(projects || []);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-app.get('/api/certifications', async (req, res) => {
-  try {
-    const certs = await Certification.find();
-    res.json(certs || []);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

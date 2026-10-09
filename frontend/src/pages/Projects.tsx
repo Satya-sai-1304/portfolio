@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, ShieldCheck, Cpu, Code2, Users2, KeyRound, Lightbulb, AlertTriangle, CheckSquare, ShoppingCart, ShoppingBasket, Apple, Carrot, Milk, Package, Hammer } from 'lucide-react';
+import { ExternalLink, ShieldCheck, Cpu, Code2, KeyRound, Lightbulb, AlertTriangle, CheckSquare, ShoppingCart, ShoppingBasket, Apple, Carrot, Milk, Package, Hammer } from 'lucide-react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { GithubIcon } from '../components/Icons';
 import type { ProjectData } from '../services/api';
@@ -347,43 +347,30 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               <div className="lg:col-span-5 bg-portfolioSurface/40 border border-divider rounded-card p-8 flex flex-col justify-between relative overflow-hidden text-left">
                 <div className="absolute inset-0 bg-gradient-to-br from-accentBlue/5 to-transparent opacity-50" />
                 
-                <div>
-                  <h4 className="font-heading font-bold text-lg text-white mb-6 flex items-center gap-2">
-                    <ShieldCheck className="w-5 h-5 text-emerald-400" />
-                    Security & RBAC Architecture
-                  </h4>
-                  
-                  {/* Access Matrix Preview */}
-                  <div className="bg-portfolioBg/50 border border-divider rounded-btn p-4 mb-6">
-                    <span className="block text-[10px] font-mono uppercase tracking-wider text-secondaryText/60 mb-3">Role-Based Access Matrix</span>
-                    <div className="flex flex-col gap-2.5 text-xs">
-                      <div className="flex justify-between border-b border-divider/40 pb-1.5">
-                        <span className="font-semibold text-white">Administrator</span>
-                        <span className="text-accentBlue">Full CRUD Control</span>
-                      </div>
-                      <div className="flex justify-between border-b border-divider/40 pb-1.5">
-                        <span className="font-semibold text-white">Manager</span>
-                        <span className="text-emerald-400">Manage logs & shifts</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="font-semibold text-white">Driver</span>
-                        <span className="text-secondaryText">View shifts & logs</span>
-                      </div>
-                    </div>
+                {featured.securityFeatures && featured.securityFeatures.length > 0 && (
+                  <div className="relative mb-6">
+                    <h4 className="font-heading font-bold text-lg text-white mb-5 flex items-center gap-2">
+                      <ShieldCheck className="w-5 h-5 text-emerald-400" />
+                      Security
+                    </h4>
+                    <ul className="flex flex-col gap-2.5 bg-portfolioBg/50 border border-divider rounded-btn p-4 text-xs text-secondaryText font-light">
+                      {featured.securityFeatures.map((sec, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <KeyRound className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                          <span>{sec}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
+                )}
 
-                  <p className="text-secondaryText text-xs leading-relaxed mb-6 font-light">
-                    The backend API is locked down with standard rate limiters and express sanitizers to prevent injection vulnerabilities. Access routes are restricted via JWT verification claims.
-                  </p>
-                </div>
-
-                <div className="bg-primaryBlue/5 border border-primaryBlue/10 p-4 rounded-btn">
+                <div className="relative bg-primaryBlue/5 border border-primaryBlue/10 p-4 rounded-btn">
                   <div className="flex items-center gap-2 mb-2 text-xs font-semibold text-white">
-                    <Cpu className="w-4.5 h-4.5 text-primaryBlue animate-pulse" />
-                    <span>Real-time Simulations</span>
+                    <Cpu className="w-4.5 h-4.5 text-primaryBlue animate-pulse motion-reduce:animate-none" />
+                    <span>Tech at a Glance</span>
                   </div>
-                  <p className="text-secondaryText text-xs leading-normal font-light">
-                    Frontend maps simulate GPS nodes, using reactive client hooks mapping to Mongoose schemas.
+                  <p className="text-secondaryText text-xs leading-relaxed font-light">
+                    {featured.features.length} core features built with {featured.techStack.length} technologies, including {featured.techStack.slice(0, 3).join(', ')}.
                   </p>
                 </div>
 
@@ -406,26 +393,33 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     
                     {/* Deep dive: Problem and solution */}
                     <div className="flex flex-col gap-6">
-                      <div>
-                        <h4 className="font-heading font-extrabold text-xl text-white mb-3 flex items-center gap-2">
-                          <AlertTriangle className="w-5 h-5 text-amber-500" />
-                          The Problem Statement
-                        </h4>
-                        <p className="text-secondaryText text-sm leading-relaxed font-light">
-                          {featured.problemStatement}
-                        </p>
-                      </div>
+                      {featured.problemStatement && (
+                        <div>
+                          <h4 className="font-heading font-extrabold text-xl text-white mb-3 flex items-center gap-2">
+                            <AlertTriangle className="w-5 h-5 text-amber-500" />
+                            The Problem
+                          </h4>
+                          <p className="text-secondaryText text-sm leading-relaxed font-light">
+                            {featured.problemStatement}
+                          </p>
+                        </div>
+                      )}
 
-                      <div>
-                        <h4 className="font-heading font-extrabold text-xl text-white mb-3 flex items-center gap-2">
-                          <Code2 className="w-5 h-5 text-primaryBlue" />
-                          The Engineering Solution
-                        </h4>
-                        <p className="text-secondaryText text-sm leading-relaxed font-light">
-                          {featured.overview}
-                        </p>
-                      </div>
+                      {featured.overview && (
+                        <div>
+                          <h4 className="font-heading font-extrabold text-xl text-white mb-3 flex items-center gap-2">
+                            <Code2 className="w-5 h-5 text-primaryBlue" />
+                            The Solution
+                          </h4>
+                          <p className="text-secondaryText text-sm leading-relaxed font-light">
+                            {featured.overview}
+                          </p>
+                        </div>
+                      )}
+                    </div>
 
+                    {/* Deep dive: Challenges and learnings */}
+                    <div className="flex flex-col gap-6">
                       {featured.challenges && (
                         <div>
                           <h4 className="font-heading font-extrabold text-xl text-white mb-3">Technical Challenges</h4>
@@ -434,48 +428,25 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                           </p>
                         </div>
                       )}
-                    </div>
 
-                    {/* Deep dive: RBAC & Security */}
-                    <div className="flex flex-col gap-6">
-                      <div>
-                        <h4 className="font-heading font-extrabold text-xl text-white mb-3 flex items-center gap-2">
-                          <Users2 className="w-5 h-5 text-accentBlue" />
-                          Role-Based Access Matrix Details
-                        </h4>
-                        <p className="text-secondaryText text-sm leading-relaxed mb-4 font-light">
-                          Our authorization schema segments features dynamically by checking claims embedded inside headers:
-                        </p>
-                        <div className="space-y-3 bg-portfolioBg/60 border border-divider rounded-btn p-4 text-xs font-light">
-                          <div>
-                            <span className="block font-bold text-white mb-0.5">Admin Role:</span>
-                            <span className="text-secondaryText">Vehicle onboarding, dispatch overrides, and audit trails.</span>
-                          </div>
-                          <div>
-                            <span className="block font-bold text-white mb-0.5">Manager Role:</span>
-                            <span className="text-secondaryText">Run compliance sheets, update maintenance files, and alert logs.</span>
-                          </div>
-                          <div>
-                            <span className="block font-bold text-white mb-0.5">Driver Role:</span>
-                            <span className="text-secondaryText">View shifts, input odometer updates, and declare issues.</span>
-                          </div>
+                      {featured.solutions && (
+                        <div>
+                          <h4 className="font-heading font-extrabold text-xl text-white mb-3">How I Solved Them</h4>
+                          <p className="text-secondaryText text-sm leading-relaxed font-light">
+                            {featured.solutions}
+                          </p>
                         </div>
-                      </div>
+                      )}
 
-                      {featured.securityFeatures && (
+                      {featured.architecture && (
                         <div>
                           <h4 className="font-heading font-extrabold text-xl text-white mb-3 flex items-center gap-2">
-                            <KeyRound className="w-5 h-5 text-emerald-400" />
-                            Backend Security Protections
+                            <Cpu className="w-5 h-5 text-accentBlue" />
+                            How It's Built
                           </h4>
-                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-secondaryText font-light">
-                            {featured.securityFeatures.map((sec, i) => (
-                              <li key={i} className="flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                                <span>{sec}</span>
-                              </li>
-                            ))}
-                          </ul>
+                          <p className="text-secondaryText text-sm leading-relaxed font-light">
+                            {featured.architecture}
+                          </p>
                         </div>
                       )}
 

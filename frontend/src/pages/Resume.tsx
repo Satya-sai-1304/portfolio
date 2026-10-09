@@ -1,17 +1,23 @@
 import React from 'react';
 import { Download, FileText, Briefcase, Mail, MapPin, Globe } from 'lucide-react';
-import type { ProfileData } from '../services/api';
+import type { ProfileData, SkillData, ExperienceData } from '../services/api';
 
 interface ResumeProps {
   profile: ProfileData;
+  skills: SkillData[];
+  experience: ExperienceData[];
 }
 
-export const Resume: React.FC<ResumeProps> = ({ profile }) => {
-  // We can write a simple download PDF handler or point it to a local asset.
-  const handleDownload = () => {
-    // Propose downloading a placeholder resume file or opening window to print
-    alert('CV file download initiated (In a real deployment, this would download a customized PDF).');
-  };
+export const Resume: React.FC<ResumeProps> = ({ profile, skills, experience }) => {
+  // Technical skills only, strongest first
+  const technologies = skills
+    .filter((s) => s.category !== 'Soft Skills' && s.category !== 'Currently Learning')
+    .sort((a, b) => b.level - a.level)
+    .slice(0, 12)
+    .map((s) => s.name);
+
+  const timeline = [...experience].sort((a, b) => a.order - b.order);
+  const siteHost = typeof window !== 'undefined' ? window.location.host : '';
 
   return (
     <section id="resume" className="py-24 bg-portfolioBg relative">
@@ -40,17 +46,34 @@ export const Resume: React.FC<ResumeProps> = ({ profile }) => {
                 Need a PDF Copy?
               </h3>
               
-              <p className="text-secondaryText text-sm leading-relaxed mb-8 font-light">
-                Download my full professional CV including complete project indexes, technology tables, and recommendations formatted for printer sizing.
-              </p>
-
-              <button
-                onClick={handleDownload}
-                className="flex items-center justify-center gap-2.5 w-full py-3.5 bg-gradient-to-r from-primaryBlue to-accentBlue text-white font-semibold text-sm rounded-btn btn-glow transition-all duration-300 shadow-medium"
-              >
-                <Download className="w-4.5 h-4.5" />
-                <span>Download CV (PDF)</span>
-              </button>
+              {profile.resumeUrl ? (
+                <>
+                  <p className="text-secondaryText text-sm leading-relaxed mb-8 font-light">
+                    Download my full CV with education, internships, projects, and technical skills.
+                  </p>
+                  <a
+                    href={profile.resumeUrl}
+                    download
+                    className="flex items-center justify-center gap-2.5 w-full py-3.5 bg-gradient-to-r from-primaryBlue to-accentBlue text-white font-semibold text-sm rounded-btn btn-glow transition-all duration-300 shadow-medium"
+                  >
+                    <Download className="w-4.5 h-4.5" />
+                    <span>Download CV (PDF)</span>
+                  </a>
+                </>
+              ) : (
+                <>
+                  <p className="text-secondaryText text-sm leading-relaxed mb-8 font-light">
+                    Email me and I'll send you my latest CV with education, internships, projects, and technical skills.
+                  </p>
+                  <a
+                    href={`mailto:${profile.socialLinks.email}?subject=${encodeURIComponent('CV request')}`}
+                    className="flex items-center justify-center gap-2.5 w-full py-3.5 bg-gradient-to-r from-primaryBlue to-accentBlue text-white font-semibold text-sm rounded-btn btn-glow transition-all duration-300 shadow-medium"
+                  >
+                    <Mail className="w-4.5 h-4.5" />
+                    <span>Request CV by Email</span>
+                  </a>
+                </>
+              )}
             </div>
           </div>
 
@@ -78,13 +101,15 @@ export const Resume: React.FC<ResumeProps> = ({ profile }) => {
                     <MapPin className="w-3.5 h-3.5 text-accentBlue" />
                     <span>{profile.socialLinks.location}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Globe className="w-3.5 h-3.5 text-accentBlue" />
-                    <span>satyasai.dev</span>
-                  </div>
+                  {siteHost && (
+                    <div className="flex items-center gap-2">
+                      <Globe className="w-3.5 h-3.5 text-accentBlue" />
+                      <span>{siteHost}</span>
+                    </div>
+                  )}
                   <div className="flex items-center gap-2">
                     <Briefcase className="w-3.5 h-3.5 text-accentBlue" />
-                    <span>Full-Time Hire</span>
+                    <span>Open to Opportunities</span>
                   </div>
                 </div>
               </div>
@@ -112,7 +137,7 @@ export const Resume: React.FC<ResumeProps> = ({ profile }) => {
                       Technologies
                     </h4>
                     <div className="flex flex-wrap gap-1.5">
-                      {['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'Tailwind', 'Framer Motion', 'Git', 'AWS'].map((tech) => (
+                      {technologies.map((tech) => (
                         <span key={tech} className="text-[10px] bg-portfolioBg text-primaryText px-2 py-0.5 rounded border border-divider">
                           {tech}
                         </span>
@@ -127,29 +152,30 @@ export const Resume: React.FC<ResumeProps> = ({ profile }) => {
                     Professional Timeline Summary
                   </h4>
 
-                  <div className="relative border-l border-divider/60 pl-5 ml-2 flex flex-col gap-6 text-xs">
-                    <div>
-                      <div className="absolute -left-[25px] top-1 w-2.5 h-2.5 rounded-full bg-primaryBlue" />
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="font-semibold text-white">Full Stack Software Engineer</span>
-                        <span className="text-secondaryText font-mono">2024 - Pres.</span>
+                  <div className="border-l border-divider/60 pl-5 ml-2 flex flex-col gap-6 text-xs">
+                    {timeline.map((job, idx) => (
+                      <div key={`${job.company}-${job.role}`} className="relative">
+                        <div className={`absolute -left-[25px] top-1 w-2.5 h-2.5 rounded-full ${idx === 0 ? 'bg-primaryBlue' : 'bg-divider'}`} />
+                        <div className="flex justify-between items-center gap-3 mb-1">
+                          <span className="font-semibold text-white">{job.role}</span>
+                          <span className="text-secondaryText font-mono shrink-0">{job.period}</span>
+                        </div>
+                        <span className="text-accentBlue block mb-2 font-medium">{job.company}</span>
+                        {job.responsibilities[0] && (
+                          <p className="text-secondaryText leading-relaxed">{job.responsibilities[0]}</p>
+                        )}
                       </div>
-                      <span className="text-accentBlue block mb-2 font-medium">Tech Innovations Inc.</span>
-                      <p className="text-secondaryText leading-relaxed">
-                        Leading React and Node application updates. Successfully engineered secure JWT validations and speed indexes.
-                      </p>
-                    </div>
+                    ))}
 
-                    <div>
+                    <div className="relative">
                       <div className="absolute -left-[25px] top-1 w-2.5 h-2.5 rounded-full bg-divider" />
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="font-semibold text-white">Frontend Engineering Intern</span>
-                        <span className="text-secondaryText font-mono">2024</span>
-                      </div>
-                      <span className="text-accentBlue block mb-2 font-medium">WebSphere Solutions</span>
-                      <p className="text-secondaryText leading-relaxed">
-                        Refactored legacy UI views to clean functional modules, improving responsive page dimensions for 40+ client pages.
-                      </p>
+                      <h5 className="font-semibold text-white mb-2">Education</h5>
+                      {profile.education.map((edu) => (
+                        <div key={edu.degree} className="mb-2">
+                          <span className="block text-white/90">{edu.degree}</span>
+                          <span className="block text-secondaryText">{edu.institution} · {edu.period}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>

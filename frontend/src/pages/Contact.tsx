@@ -9,6 +9,9 @@ interface ContactProps {
   profile: ProfileData;
 }
 
+// "https://github.com/user/" -> "github.com/user"
+const displayUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+
 export const Contact: React.FC<ContactProps> = ({ profile }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -97,22 +100,24 @@ export const Contact: React.FC<ContactProps> = ({ profile }) => {
                   </div>
                 </a>
 
-                <a 
-                  href={profile.socialLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-btn bg-portfolioBg/50 border border-divider hover:border-primaryBlue/30 hover:shadow-glow transition-all duration-300 group"
-                >
-                  <div className="p-2.5 rounded-btn bg-primaryBlue/10 text-primaryBlue border border-primaryBlue/20 group-hover:bg-primaryBlue group-hover:text-white transition-all duration-300">
-                    <LinkedinIcon className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="block text-[10px] font-mono uppercase tracking-wider text-secondaryText/60">LinkedIn</span>
-                    <span className="block text-sm font-semibold text-white truncate">linkedin.com/in/satyasai</span>
-                  </div>
-                </a>
+                {profile.socialLinks.linkedin && (
+                  <a
+                    href={profile.socialLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-btn bg-portfolioBg/50 border border-divider hover:border-primaryBlue/30 hover:shadow-glow transition-all duration-300 group"
+                  >
+                    <div className="p-2.5 rounded-btn bg-primaryBlue/10 text-primaryBlue border border-primaryBlue/20 group-hover:bg-primaryBlue group-hover:text-white transition-all duration-300">
+                      <LinkedinIcon className="w-5 h-5" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-[10px] font-mono uppercase tracking-wider text-secondaryText/60">LinkedIn</span>
+                      <span className="block text-sm font-semibold text-white truncate">{displayUrl(profile.socialLinks.linkedin)}</span>
+                    </div>
+                  </a>
+                )}
 
-                <a 
+                <a
                   href={profile.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -123,7 +128,7 @@ export const Contact: React.FC<ContactProps> = ({ profile }) => {
                   </div>
                   <div className="min-w-0">
                     <span className="block text-[10px] font-mono uppercase tracking-wider text-secondaryText/60">GitHub</span>
-                    <span className="block text-sm font-semibold text-white truncate">github.com/satyasai</span>
+                    <span className="block text-sm font-semibold text-white truncate">{displayUrl(profile.socialLinks.github)}</span>
                   </div>
                 </a>
 

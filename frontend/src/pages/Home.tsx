@@ -169,12 +169,12 @@ export const Home: React.FC<HomeProps> = ({ profile, featuredProject, onNavigate
               {/* Quick stats grid representation */}
               <div className="grid grid-cols-2 gap-3 border-t border-divider pt-4">
                 <div className="bg-portfolioBg/50 p-2.5 rounded-btn border border-divider text-left">
-                  <span className="block text-[10px] uppercase font-mono tracking-wider text-secondaryText/60">Target</span>
-                  <span className="text-xs font-semibold text-white">Logistics & Fleet</span>
+                  <span className="block text-[10px] uppercase font-mono tracking-wider text-secondaryText/60">Features</span>
+                  <span className="text-xs font-semibold text-white">{featuredProject.features.length} core modules</span>
                 </div>
                 <div className="bg-portfolioBg/50 p-2.5 rounded-btn border border-divider text-left">
-                  <span className="block text-[10px] uppercase font-mono tracking-wider text-secondaryText/60">Features</span>
-                  <span className="text-xs font-semibold text-white">GPS simulation</span>
+                  <span className="block text-[10px] uppercase font-mono tracking-wider text-secondaryText/60">Tech Stack</span>
+                  <span className="text-xs font-semibold text-white">{featuredProject.techStack.length} technologies</span>
                 </div>
               </div>
             </div>

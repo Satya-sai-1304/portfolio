@@ -128,8 +128,6 @@ GET /api/skills
 
 GET /api/experience
 
-GET /api/certifications
-
 ---
 
 # 8. Request Flow

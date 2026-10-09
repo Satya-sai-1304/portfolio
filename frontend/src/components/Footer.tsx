@@ -2,8 +2,15 @@ import React from 'react';
 import { Mail, MapPin, ArrowUp } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import logoImg from '../assets/logo.jpg';
+import type { ProfileData } from '../services/api';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  profile: ProfileData;
+}
+
+export const Footer: React.FC<FooterProps> = ({ profile }) => {
+  const { github, linkedin, email } = profile.socialLinks;
+
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -45,26 +52,30 @@ export const Footer: React.FC = () => {
 
         {/* Social Icons */}
         <div className="flex items-center gap-6 mb-8">
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full bg-portfolioSurface border border-divider hover:border-primaryBlue/40 text-secondaryText hover:text-primaryBlue hover:shadow-glow transition-all duration-300"
+              aria-label="GitHub Profile"
+            >
+              <GithubIcon className="w-5 h-5" />
+            </a>
+          )}
+          {linkedin && (
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full bg-portfolioSurface border border-divider hover:border-primaryBlue/40 text-secondaryText hover:text-primaryBlue hover:shadow-glow transition-all duration-300"
+              aria-label="LinkedIn Profile"
+            >
+              <LinkedinIcon className="w-5 h-5" />
+            </a>
+          )}
           <a
-            href="https://github.com/satyasai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-full bg-portfolioSurface border border-divider hover:border-primaryBlue/40 text-secondaryText hover:text-primaryBlue hover:shadow-glow transition-all duration-300"
-            aria-label="GitHub Profile"
-          >
-            <GithubIcon className="w-5 h-5" />
-          </a>
-          <a
-            href="https://linkedin.com/in/satyasai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-full bg-portfolioSurface border border-divider hover:border-primaryBlue/40 text-secondaryText hover:text-primaryBlue hover:shadow-glow transition-all duration-300"
-            aria-label="LinkedIn Profile"
-          >
-            <LinkedinIcon className="w-5 h-5" />
-          </a>
-          <a
-            href="mailto:satyasainakka04@gmail.com"
+            href={`mailto:${email}`}
             className="p-2.5 rounded-full bg-portfolioSurface border border-divider hover:border-primaryBlue/40 text-secondaryText hover:text-primaryBlue hover:shadow-glow transition-all duration-300"
             aria-label="Email Contact"
           >
@@ -84,7 +95,7 @@ export const Footer: React.FC = () => {
 
         {/* Copyright */}
         <p className="text-secondaryText/60 text-xs">
-          &copy; {new Date().getFullYear()} Satya Sai. All rights reserved.
+          &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
         </p>
       </div>
     </footer>
