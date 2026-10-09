@@ -96,13 +96,13 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Server Error' });
 });
 
-connectDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server started on port ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.error(`Failed to start server: ${error.message}`);
-    process.exit(1);
-  });
+// Start listening even if the database is down, so the deploy stays up and
+// the frontend can fall back to its built-in data instead of the whole site failing.
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
+
+connectDB().catch((error) => {
+  console.error(`MongoDB connection failed: ${error.message}`);
+  console.error('Check that MONGO_URI is set in the host environment and that MongoDB Atlas Network Access allows this server.');
+});
