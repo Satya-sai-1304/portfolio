@@ -42,6 +42,8 @@ export interface ExperienceData {
   order: number;
 }
 
+export type ProjectStatus = 'Completed' | 'In Testing' | 'In Development';
+
 export interface ProjectData {
   _id?: string;
   title: string;
@@ -53,8 +55,10 @@ export interface ProjectData {
   github?: string;
   live?: string;
   isFeatured: boolean;
-  inProgress?: boolean;
-  progress?: number;
+  // Set for work done at a company; those projects are grouped under it with no code links
+  company?: string;
+  status?: ProjectStatus;
+  role?: string;
   overview?: string;
   problemStatement?: string;
   architecture?: string;

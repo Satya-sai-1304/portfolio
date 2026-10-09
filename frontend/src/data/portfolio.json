@@ -3,7 +3,7 @@
     "name": "Satyasai Nakka",
     "title": "Full Stack Developer",
     "bio": "Associate Software Engineer and Full Stack Developer with hands-on experience building web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and mobile applications using Flutter and Dart. I work across the full development cycle: UI/UX design in Figma, responsive frontend development, REST API development and integration, and database design.",
-    "careerJourney": "I studied Artificial Intelligence and Machine Learning at Sir C R Reddy College of Engineering, where internships at Spypro and Skilldezire introduced me to ML and AI development. Today I work as an Associate Software Engineer at Speshway Solutions, building a fleet management platform with a small team. On my own, I have built multi-role applications for event management and grocery delivery, taking each one from Figma design through frontend, backend, and database.",
+    "careerJourney": "I studied Artificial Intelligence and Machine Learning at Sir C R Reddy College of Engineering, where internships at Spypro and Skilldezire introduced me to ML and AI development. Today I work as an Associate Software Engineer at Speshway Solutions, building a fleet management platform with a 3-member team. There I have also delivered a grocery delivery platform on web and mobile, and I am now building an event management application, taking each one from Figma design through frontend, backend, and database.",
     "education": [
       {
         "degree": "B.Tech in Artificial Intelligence and Machine Learning",
@@ -74,7 +74,9 @@
         "Designed UI/UX screens in Figma and converted them into responsive, functional React.js interfaces.",
         "Developed and integrated REST APIs with Node.js and Express.js to connect frontend modules with backend services.",
         "Implemented CRUD operations and database functionality in MongoDB for trips, drivers, and admin data.",
-        "Participated in daily development meetings and collaborated with team members across design, development, and integration."
+        "Participated in daily development meetings and collaborated with team members across design, development, and integration.",
+        "Built a Grocery Delivery Application (React.js web + Flutter mobile) end to end as an individual project, now completed.",
+        "Developing an Event Management Application individually, from Figma design through implementation."
       ],
       "technologies": ["React.js", "Node.js", "Express.js", "MongoDB", "Figma", "REST APIs"],
       "achievements": [],
@@ -107,7 +109,10 @@
   "projects": [
     {
       "title": "Grocery Delivery Application",
-      "description": "A multi-role grocery platform on web and mobile, built from scratch as an individual project, with separate Customer, Admin, and Delivery Partner experiences sharing one REST API backend.",
+      "company": "Speshway Solutions",
+      "status": "Completed",
+      "role": "Individual project · Web + Mobile",
+      "description": "A multi-role grocery platform on web and mobile, built from scratch at Speshway Solutions, with separate Customer, Admin, and Delivery Partner experiences sharing one REST API backend.",
       "features": [
         "Separate Customer, Admin, and Delivery Partner dashboards on web.",
         "Flutter mobile apps for Customers and Delivery Partners.",
@@ -117,14 +122,35 @@
         "End to end: Figma design, frontend, backend, and MongoDB database design."
       ],
       "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "Flutter", "Dart", "Figma"],
+      "isFeatured": true,
+      "overview": "Customers browse products and place orders on web or mobile, delivery partners manage their deliveries from a dedicated Flutter app, and admins run the catalogue, orders, refunds, returns, and seasonal festival offers from the web dashboard.",
+      "architecture": "Designed in Figma, then built as a React.js web app and two Flutter apps (Customer and Delivery Partner) that all talk to one Node.js and Express REST API backed by MongoDB.",
+      "order": 1
+    },
+    {
+      "title": "Fleet Management System",
+      "company": "Speshway Solutions",
+      "status": "In Testing",
+      "role": "3-member team · ~40 screens built",
+      "description": "A fleet management web application for managing drivers, trips, and live vehicle tracking, built with a 3-member team at Speshway Solutions.",
+      "features": [
+        "Driver and Admin modules covering both workflows.",
+        "Trip management with live tracking.",
+        "Public-facing pages for the platform.",
+        "UI/UX designed in Figma and built as responsive React.js screens.",
+        "REST APIs with Node.js and Express.js.",
+        "MongoDB CRUD for trips, drivers, and admin data."
+      ],
+      "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "Figma"],
       "isFeatured": false,
-      "inProgress": true,
-      "progress": 65,
-      "order": 0
+      "order": 2
     },
     {
       "title": "Event Management Application",
-      "description": "A full-stack event booking platform built end to end as an individual project, from requirements and Figma design through implementation, where users discover and book events, merchants offer services, and admins manage the platform.",
+      "company": "Speshway Solutions",
+      "status": "In Development",
+      "role": "Individual project",
+      "description": "A full-stack event booking platform being built end to end at Speshway Solutions, from requirements and Figma design through implementation, where users discover and book events, merchants offer services, and admins manage the platform.",
       "features": [
         "Dashboards and workflows for event creation, bookings, and date scheduling.",
         "Online payments with Razorpay, coupons, and QR-code tickets.",
@@ -134,8 +160,7 @@
         "Reviews, saved events, complaints, and venue maps."
       ],
       "techStack": ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Socket.io", "Razorpay", "Figma"],
-      "github": "https://github.com/Satya-sai-1304/Event_Hub",
-      "isFeatured": true,
+      "isFeatured": false,
       "overview": "The platform brings event organisers, service merchants, and attendees together. Users browse and book events, pay online, and receive QR-code tickets. Merchants list services such as decorations and manage their payouts, while admins oversee bookings, categories, complaints, and platform settings.",
       "problemStatement": "Planning and attending events usually means juggling separate tools for discovery, booking, scheduling, payments, and vendor coordination. This application puts those workflows in one place for attendees, merchants, and administrators.",
       "architecture": "Designed in Figma, then built as a React + TypeScript frontend (Tailwind CSS, shadcn/ui) on top of a Node.js and Express REST API with MongoDB through Mongoose. Socket.io powers live chat and notifications, Razorpay handles payments, Cloudinary stores gallery images, and Nodemailer sends booking emails.",
@@ -145,7 +170,7 @@
         "API rate limiting with express-rate-limit.",
         "Audit logs recording administrative actions."
       ],
-      "order": 1
+      "order": 3
     },
     {
       "title": "Vehicle Care Center",
@@ -159,7 +184,7 @@
       "techStack": ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Socket.io"],
       "github": "https://github.com/Satya-sai-1304/VechicleCareCenter",
       "isFeatured": false,
-      "order": 2
+      "order": 4
     },
     {
       "title": "School Management System",
@@ -172,7 +197,7 @@
       "techStack": ["Java", "OOP"],
       "github": "https://github.com/Satya-sai-1304/SchoolManagementSystem",
       "isFeatured": false,
-      "order": 3
+      "order": 5
     }
   ]
 }

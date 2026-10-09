@@ -51,9 +51,10 @@ const ProjectSchema = new mongoose.Schema({
   github: { type: String },
   live: { type: String },
   isFeatured: { type: Boolean, default: false },
-  // Actively being built (shown in the "Currently Building" spotlight)
-  inProgress: { type: Boolean, default: false },
-  progress: { type: Number, min: 0, max: 100 },
+  // Work done at a company (grouped under "Professional Work", no code links)
+  company: { type: String },
+  status: { type: String, enum: ['Completed', 'In Testing', 'In Development'] },
+  role: { type: String },
   // Case-study details shown for the featured project
   overview: { type: String },
   problemStatement: { type: String },
