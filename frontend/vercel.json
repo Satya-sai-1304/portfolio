@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://portfolio-8dec.onrender.com/api/:path*"
+    }
+  ]
+}

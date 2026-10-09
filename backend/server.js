@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const connectDB = require('./config/db');
 const { Profile, Skill, Experience, Project, Certification, Contact } = require('./models/models');
 
@@ -79,15 +80,24 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// Serve static assets in production
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+// Serve the built frontend only when it exists (e.g. single-server deploys).
+// On Render the frontend is hosted separately on Vercel, so there is no dist folder.
+const distDir = path.join(__dirname, '../frontend/dist');
+const hasFrontendBuild = fs.existsSync(path.join(distDir, 'index.html'));
+
+if (hasFrontendBuild) {
+  app.use(express.static(distDir));
+}
 
 app.get('*', (req, res) => {
   // If request starts with /api, return 404
   if (req.url.startsWith('/api')) {
     return res.status(404).json({ error: 'API endpoint not found.' });
   }
-  res.sendFile(path.resolve(__dirname, '../frontend/dist', 'index.html'));
+  if (!hasFrontendBuild) {
+    return res.json({ status: 'ok', message: 'Portfolio API is running.' });
+  }
+  res.sendFile(path.join(distDir, 'index.html'));
 });
 
 // Global Error Handler
