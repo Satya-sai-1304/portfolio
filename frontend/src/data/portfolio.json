@@ -1,134 +1,144 @@
 {
   "profile": {
-    "name": "Nakka Satya Sai",
-    "title": "Full Stack Software Engineer",
-    "bio": "Currently pursuing studies in Artificial Intelligence and Machine Learning (AIML) with a focus on building intelligent systems, machine learning algorithms, and data-driven decision-making. Developing expertise in key areas like data preprocessing, supervised and unsupervised learning, and model optimization to create innovative solutions for real-world challenges.",
-    "careerJourney": "My career journey started with a deep interest in software systems and machine learning. Through internships at Spypro and Skilldezire, I have designed machine learning models, built AI-powered OCR tools, and developed full-stack web applications. I bridge the gap between AI/ML concepts and robust full-stack software development.",
+    "name": "Satyasai Nakka",
+    "title": "Full Stack Developer",
+    "bio": "Associate Software Engineer and Full Stack Developer with hands-on experience building web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and mobile applications using Flutter and Dart. I work across the full development cycle: UI/UX design in Figma, responsive frontend development, REST API development and integration, and database design.",
+    "careerJourney": "I studied Artificial Intelligence and Machine Learning at Sir C R Reddy College of Engineering, where internships at Spypro and Skilldezire introduced me to ML and AI development. Today I work as an Associate Software Engineer at Speshway Solutions, building a fleet management platform with a small team. On my own, I have built multi-role applications for event management and grocery delivery, taking each one from Figma design through frontend, backend, and database.",
     "education": [
       {
-        "degree": "Bachelor of Technology in Computer Science & Engineering (AIML)",
-        "institution": "Sir C R Reddy College of Engineering",
-        "period": "2022 - 2026 (8.82 CGPA)"
+        "degree": "B.Tech in Artificial Intelligence and Machine Learning",
+        "institution": "Sir C R Reddy College of Engineering, Vatluru, Eluru",
+        "period": "May 2026 · CGPA 8.82"
       },
       {
-        "degree": "Intermediate (M.P.C)",
-        "institution": "Venkateswara Junior College",
-        "period": "2020 - 2022 (9.1 CGPA)"
+        "degree": "Intermediate (MPC)",
+        "institution": "Venkateswara Junior College, Jangareddygudem",
+        "period": "Mar 2022 · CGPA 9.1"
       },
       {
-        "degree": "SSC",
-        "institution": "Manasa EM High School",
-        "period": "2020 (9.7 CGPA)"
+        "degree": "SSC (Class X)",
+        "institution": "Manasa EM High School, Bhimadole",
+        "period": "May 2020 · CGPA 9.7"
       }
     ],
-    "interests": ["Artificial Intelligence", "Machine Learning", "Full Stack Development", "Mobile App Development (Flutter)", "Database Management", "Data Visualization"],
-    "resumeUrl": "",
+    "interests": ["Full Stack Development", "Mobile App Development", "UI/UX Design", "Artificial Intelligence", "Machine Learning", "DevOps"],
+    "resumeUrl": "/Satyasai_Nakka_Resume.pdf",
     "socialLinks": {
       "github": "https://github.com/Satya-sai-1304",
-      "linkedin": "",
+      "linkedin": "https://www.linkedin.com/in/satyasai-nakka-799698331",
       "email": "satyasainakka04@gmail.com",
-      "location": "Dwaraka Tirumala, Andhra Pradesh, India"
+      "location": "Dwaraka Tirumala, Eluru District, Andhra Pradesh, India"
     }
   },
 
   "skills": [
-    { "category": "Frontend", "name": "React", "level": 90 },
-    { "category": "Frontend", "name": "TypeScript", "level": 80 },
+    { "category": "Frontend", "name": "React.js", "level": 90 },
+    { "category": "Frontend", "name": "JavaScript", "level": 90 },
+    { "category": "Frontend", "name": "HTML & CSS", "level": 95 },
     { "category": "Frontend", "name": "Tailwind CSS", "level": 85 },
     { "category": "Frontend", "name": "Bootstrap", "level": 90 },
-    { "category": "Frontend", "name": "HTML5 & CSS3", "level": 95 },
-    { "category": "Frontend", "name": "JavaScript", "level": 90 },
-    { "category": "Backend", "name": "Python", "level": 95 },
-    { "category": "Backend", "name": "Java", "level": 85 },
-    { "category": "Backend", "name": "Data Structures & Algorithms (DSA)", "level": 85 },
-    { "category": "Backend", "name": "Flask", "level": 80 },
-    { "category": "Backend", "name": "Node.js & Express", "level": 80 },
-    { "category": "Database", "name": "SQL / MySQL", "level": 90 },
+    { "category": "Frontend", "name": "Responsive Design", "level": 90 },
+    { "category": "Backend", "name": "Node.js", "level": 85 },
+    { "category": "Backend", "name": "Express.js", "level": 85 },
+    { "category": "Backend", "name": "REST APIs", "level": 85 },
+    { "category": "Backend", "name": "API Integration", "level": 85 },
     { "category": "Database", "name": "MongoDB", "level": 85 },
-    { "category": "Cloud", "name": "Vercel", "level": 75 },
-    { "category": "Cloud", "name": "Render", "level": 70 },
-    { "category": "Cloud", "name": "MongoDB Atlas", "level": 75 },
+    { "category": "Database", "name": "SQL / MySQL", "level": 85 },
+    { "category": "Database", "name": "Database Design", "level": 80 },
+    { "category": "Mobile", "name": "Flutter", "level": 80 },
+    { "category": "Mobile", "name": "Dart", "level": 75 },
+    { "category": "UI/UX", "name": "Figma", "level": 85 },
+    { "category": "UI/UX", "name": "Wireframing", "level": 80 },
+    { "category": "UI/UX", "name": "Prototyping", "level": 80 },
     { "category": "Tools", "name": "Git & GitHub", "level": 90 },
-    { "category": "Tools", "name": "Excel", "level": 85 },
-    { "category": "Tools", "name": "Power BI", "level": 80 },
+    { "category": "Tools", "name": "VS Code", "level": 90 },
+    { "category": "Tools", "name": "Postman", "level": 85 },
     { "category": "Currently Learning", "name": "DevOps Fundamentals", "level": 55 },
     { "category": "Currently Learning", "name": "Docker & Containerization", "level": 60 },
     { "category": "Currently Learning", "name": "CI/CD with GitHub Actions", "level": 50 },
     { "category": "Currently Learning", "name": "Kubernetes", "level": 35 },
     { "category": "Currently Learning", "name": "Linux & Shell Scripting", "level": 65 },
-    { "category": "Soft Skills", "name": "Problem Solving", "level": 95 },
-    { "category": "Soft Skills", "name": "Team Collaboration", "level": 90 },
-    { "category": "Soft Skills", "name": "Communication", "level": 90 }
+    { "category": "Soft Skills", "name": "Agile Team Collaboration", "level": 90 },
+    { "category": "Soft Skills", "name": "Debugging & Problem Solving", "level": 90 },
+    { "category": "Soft Skills", "name": "Communication", "level": 85 }
   ],
 
   "experience": [
     {
-      "company": "Skilldezire",
-      "role": "Artificial Intelligence Intern",
-      "period": "August 2024",
+      "company": "Speshway Solutions",
+      "role": "Associate Software Engineer",
+      "period": "Dec 2025 - Present",
       "responsibilities": [
-        "Developed an AI & ML-based Optical Character Recognition (OCR) system using Tesseract and CNN models.",
-        "Integrated Flask backend services and cloud components for deployment.",
-        "Applied deep learning models with OpenCV, TensorFlow, and PyTorch to enhance character recognition accuracy."
+        "Developed approximately 40 screens for a Fleet Management web application using React.js, Node.js, Express.js, and MongoDB as part of a 3-member development team.",
+        "Built Driver, Admin, Trips, Live Tracking, and public-facing modules, covering both driver and administrator workflows.",
+        "Designed UI/UX screens in Figma and converted them into responsive, functional React.js interfaces.",
+        "Developed and integrated REST APIs with Node.js and Express.js to connect frontend modules with backend services.",
+        "Implemented CRUD operations and database functionality in MongoDB for trips, drivers, and admin data.",
+        "Participated in daily development meetings and collaborated with team members across design, development, and integration."
       ],
-      "technologies": ["Python", "Flask", "Tesseract OCR", "CNN", "OpenCV", "TensorFlow", "PyTorch"],
-      "achievements": [
-        "Successfully built and deployed a functional OCR pipeline handling multiple fonts.",
-        "Optimized image preprocessing filters reducing OCR character error rates by 18%."
-      ],
+      "technologies": ["React.js", "Node.js", "Express.js", "MongoDB", "Figma", "REST APIs"],
+      "achievements": [],
       "order": 1
     },
     {
       "company": "Spypro",
       "role": "Machine Learning Intern",
-      "period": "May 2024 - July 2024",
+      "period": "Internship",
       "responsibilities": [
-        "Built predictive models using supervised learning algorithms to improve data-driven insights.",
-        "Applied data preprocessing techniques like feature scaling and normalization to enhance model accuracy.",
-        "Assisted in data visualization tasks using Matplotlib and Power BI to share performance results."
+        "Gained practical exposure to machine learning concepts and model development."
       ],
-      "technologies": ["Python", "Machine Learning", "Pandas", "Scikit-Learn", "Matplotlib", "Power BI"],
-      "achievements": [
-        "Achieved 92% model accuracy on primary classification datasets using ensemble methods.",
-        "Automated data scrubbing operations reducing manual file cleanup workflows."
-      ],
+      "technologies": ["Machine Learning"],
+      "achievements": [],
       "order": 2
+    },
+    {
+      "company": "Skilldezire",
+      "role": "Artificial Intelligence Intern",
+      "period": "Internship",
+      "responsibilities": [
+        "Gained practical exposure to artificial intelligence concepts and development."
+      ],
+      "technologies": ["Artificial Intelligence"],
+      "achievements": [],
+      "order": 3
     }
   ],
 
   "projects": [
     {
-      "title": "Grocery Management System",
-      "description": "A full-stack grocery store platform for managing inventory, product catalogues, customer orders, and billing, currently under active development.",
+      "title": "Grocery Delivery Application",
+      "description": "A multi-role grocery platform on web and mobile, built from scratch as an individual project, with separate Customer, Admin, and Delivery Partner experiences sharing one REST API backend.",
       "features": [
-        "Live inventory tracking with low-stock alerts.",
-        "Product catalogue with categories, pricing, and search.",
-        "Cart, order placement, and billing workflow.",
-        "Admin dashboard for sales and stock insights."
+        "Separate Customer, Admin, and Delivery Partner dashboards on web.",
+        "Flutter mobile apps for Customers and Delivery Partners.",
+        "Product management, orders, and delivery tracking.",
+        "Refunds, returns/exchanges, and order cancellation.",
+        "Festival offers with theme setups.",
+        "End to end: Figma design, frontend, backend, and MongoDB database design."
       ],
-      "techStack": ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "Flutter", "Dart", "Figma"],
       "isFeatured": false,
       "inProgress": true,
       "progress": 65,
       "order": 0
     },
     {
-      "title": "Event Hub",
-      "description": "A full-stack event booking marketplace where users discover and book events, merchants sell services and decorations, and admins manage the whole platform.",
+      "title": "Event Management Application",
+      "description": "A full-stack event booking platform built end to end as an individual project, from requirements and Figma design through implementation, where users discover and book events, merchants offer services, and admins manage the platform.",
       "features": [
-        "Event discovery, booking, and QR-code tickets.",
-        "Razorpay payments with coupons, wallets, and merchant payouts.",
+        "Dashboards and workflows for event creation, bookings, and date scheduling.",
+        "Online payments with Razorpay, coupons, and QR-code tickets.",
         "Real-time chat and notifications with Socket.io.",
         "Google and GitHub sign-in alongside email login.",
         "Merchant services, decorations, and photo galleries.",
         "Reviews, saved events, complaints, and venue maps."
       ],
-      "techStack": ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Node.js", "Express", "MongoDB", "Mongoose", "Socket.io", "Razorpay", "Cloudinary"],
+      "techStack": ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Socket.io", "Razorpay", "Figma"],
       "github": "https://github.com/Satya-sai-1304/Event_Hub",
       "isFeatured": true,
-      "overview": "Event Hub brings event organisers, service merchants, and attendees onto one platform. Users browse and book events, pay online, and receive QR-code tickets. Merchants list services such as decorations and manage their payouts, while admins oversee bookings, banners, categories, complaints, and platform settings.",
-      "problemStatement": "Planning and attending events usually means juggling separate tools for discovery, ticketing, payments, vendor coordination, and support. Event Hub puts these workflows in one place for attendees, merchants, and administrators.",
-      "architecture": "A React + TypeScript single-page app (Vite, Tailwind CSS, shadcn/ui) talks to an Express REST API backed by MongoDB through Mongoose, with 20+ data models covering events, bookings, tickets, wallets, and payouts. Socket.io powers live chat and notifications, Razorpay handles payments, Cloudinary stores gallery images, and Nodemailer sends booking emails.",
+      "overview": "The platform brings event organisers, service merchants, and attendees together. Users browse and book events, pay online, and receive QR-code tickets. Merchants list services such as decorations and manage their payouts, while admins oversee bookings, categories, complaints, and platform settings.",
+      "problemStatement": "Planning and attending events usually means juggling separate tools for discovery, booking, scheduling, payments, and vendor coordination. This application puts those workflows in one place for attendees, merchants, and administrators.",
+      "architecture": "Designed in Figma, then built as a React + TypeScript frontend (Tailwind CSS, shadcn/ui) on top of a Node.js and Express REST API with MongoDB through Mongoose. Socket.io powers live chat and notifications, Razorpay handles payments, Cloudinary stores gallery images, and Nodemailer sends booking emails.",
       "securityFeatures": [
         "JWT authentication with bcrypt-hashed passwords.",
         "Google and GitHub OAuth sign-in through Passport.",
@@ -146,7 +156,7 @@
         "Admin dashboard for bookings and services.",
         "Email notifications and real-time updates."
       ],
-      "techStack": ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Node.js", "Express", "MongoDB", "Socket.io"],
+      "techStack": ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Socket.io"],
       "github": "https://github.com/Satya-sai-1304/VechicleCareCenter",
       "isFeatured": false,
       "order": 2

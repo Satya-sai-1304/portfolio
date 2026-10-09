@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LayoutGrid, Server, Database, Cloud, Wrench, GraduationCap, Users } from 'lucide-react';
+import { LayoutGrid, Server, Database, Smartphone, PenTool, Wrench, GraduationCap, Users } from 'lucide-react';
 import type { SkillData } from '../services/api';
 
 interface SkillsProps {
@@ -11,7 +11,7 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   // Find all distinct categories
-  const categories = ['All', 'Frontend', 'Backend', 'Database', 'Cloud', 'Tools', 'Currently Learning', 'Soft Skills'];
+  const categories = ['All', 'Frontend', 'Backend', 'Database', 'Mobile', 'UI/UX', 'Tools', 'Currently Learning', 'Soft Skills'];
 
   // Map category strings to representative icons
   const getCategoryIcon = (category: string) => {
@@ -22,8 +22,10 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
         return <Server className="w-4 h-4" />;
       case 'Database':
         return <Database className="w-4 h-4" />;
-      case 'Cloud':
-        return <Cloud className="w-4 h-4" />;
+      case 'Mobile':
+        return <Smartphone className="w-4 h-4" />;
+      case 'UI/UX':
+        return <PenTool className="w-4 h-4" />;
       case 'Tools':
         return <Wrench className="w-4 h-4" />;
       case 'Currently Learning':

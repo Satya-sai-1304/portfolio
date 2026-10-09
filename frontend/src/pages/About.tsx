@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, BookOpen, Heart, User, Calendar, MapPin, Languages, Sparkles } from 'lucide-react';
+import { Award, BookOpen, Heart, User, Calendar, MapPin, Languages } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { ProfileData } from '../services/api';
 
@@ -161,30 +161,6 @@ export const About: React.FC<AboutProps> = ({ profile }) => {
                 <div className="flex justify-between items-center">
                   <span className="text-white font-medium">Hindi</span>
                   <span className="text-secondaryText text-xs font-mono">Conversational</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Extracurricular Activities Box */}
-            <div className="glassmorphism rounded-card p-8 border border-divider">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-btn bg-amber-500/10 border border-amber-500/20 text-amber-400">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <h3 className="font-heading font-bold text-xl text-white">Extracurriculars</h3>
-              </div>
-              <div className="flex flex-col gap-6 text-left text-sm font-light">
-                <div>
-                  <h4 className="font-heading font-semibold text-base text-white mb-1.5">Bharat Scouts (Dwitiya Sopan)</h4>
-                  <p className="text-secondaryText text-xs leading-relaxed">
-                    Completed the Bharat Scouts & Guides Course, demonstrating strong teamwork, discipline, and leadership skills.
-                  </p>
-                </div>
-                <div className="border-t border-divider/40 pt-4">
-                  <h4 className="font-heading font-semibold text-base text-white mb-1.5">Celestra-2k24</h4>
-                  <p className="text-secondaryText text-xs leading-relaxed">
-                    Participated in Poster Presentation held at Sir C R Reddy College of Engineering, showcasing presentation and technical display skills.
-                  </p>
                 </div>
               </div>
             </div>

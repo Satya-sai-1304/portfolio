@@ -124,11 +124,11 @@ export const Resume: React.FC<ResumeProps> = ({ profile, skills, experience }) =
                       Core Strengths
                     </h4>
                     <ul className="flex flex-col gap-2 text-xs text-secondaryText">
-                      <li className="flex justify-between"><span>Full-Stack Engineering</span></li>
-                      <li className="flex justify-between"><span>System Architectures</span></li>
-                      <li className="flex justify-between"><span>Database Optimizations</span></li>
-                      <li className="flex justify-between"><span>MERN Stack Integration</span></li>
-                      <li className="flex justify-between"><span>Clean REST API Development</span></li>
+                      <li className="flex justify-between"><span>MERN Stack Development</span></li>
+                      <li className="flex justify-between"><span>Flutter Mobile Apps</span></li>
+                      <li className="flex justify-between"><span>UI/UX Design in Figma</span></li>
+                      <li className="flex justify-between"><span>REST API Development</span></li>
+                      <li className="flex justify-between"><span>Database Design</span></li>
                     </ul>
                   </div>
 

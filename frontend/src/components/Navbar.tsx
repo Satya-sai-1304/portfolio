@@ -75,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               SATYA <span className="text-primaryBlue">SAI</span>
             </span>
             <span className="text-[10px] text-secondaryText tracking-widest font-mono uppercase">
-              Full Stack Engineer
+              Full Stack Developer
             </span>
           </div>
         </a>
